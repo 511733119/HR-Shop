@@ -1,0 +1,1203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8c5be288-8abb-4837-809d-3e08f8360950" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="117">
+                <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+                <folding>
+                  <marker date="1490602126009" expanded="true" signature="1324:1951" ph="{...}" />
+                  <marker date="1490602126009" expanded="true" signature="1423:1949" ph="[...]" />
+                  <marker date="1490602126009" expanded="true" signature="1429:1686" ph="{&quot;id&quot;: 1...}" />
+                  <marker date="1490602126009" expanded="true" signature="1483:1680" ph="{&quot;id&quot;: 4...}" />
+                  <marker date="1490602126009" expanded="true" signature="1595:1672" ph="{&quot;id&quot;: 2...}" />
+                  <marker date="1490602126009" expanded="true" signature="1692:1945" ph="{&quot;id&quot;: 6...}" />
+                  <marker date="1490602126009" expanded="true" signature="1745:1939" ph="{&quot;id&quot;: 4...}" />
+                  <marker date="1490602126009" expanded="true" signature="1855:1931" ph="{&quot;id&quot;: 2...}" />
+                </folding>
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>sendCode</find>
+      <find>140</find>
+      <find>setCode</find>
+      <find>resourceEntrie</find>
+      <find>c</find>
+      <find>check</find>
+      <find>firstName</find>
+      <find>tables</find>
+      <find>bytes</find>
+      <find>json</find>
+      <find>http://www.chjcal.cc</find>
+      <find>list</find>
+      <find>msg</find>
+      <find>null</find>
+      <find>null,null</find>
+      <find>Map.Msg_BAD_REQUEST,Map.Msg.PARAM_IS_NULL</find>
+      <find>Map_Msg_BAD_REQUEST,Map_Msg.PARAM_IS_NULL</find>
+      <find>dataMap</find>
+      <find>Controller</find>
+      <find>@ResponseBody</find>
+      <find>respRes</find>
+      <find>isM</find>
+      <find>UserValid_1</find>
+      <find>ForderValid_1</find>
+      <find>ProtypeValid_1</find>
+      <find>CartValid_1</find>
+      <find>ProductValid_1</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>msg</replace>
+      <replace>List</replace>
+      <replace>PARAM_IS_NULL</replace>
+      <replace>Map.Msg_BAD_REQUEST,Map.Msg.PARAM_IS_NULL</replace>
+      <replace>Map_Msg_BAD_REQUEST,Map_Msg.PARAM_IS_NULL</replace>
+      <replace>Map_Msg.BAD_REQUEST,Map_Msg.PARAM_IS_NULL</replace>
+      <replace>RestController</replace>
+      <replace />
+      <replace>&quot;&quot;</replace>
+      <replace>respRes.toString()</replace>
+      <replace>CartValid_1</replace>
+      <replace>ValidInterface</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>D:\mvn repository\org\springframework\spring-web\4.3.3.RELEASE\spring-web-4.3.3.RELEASE.jar!\org\springframework\web\bind</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/serviceImpl/ProductServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/service/CartService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/service/CategoryService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/service/ForderService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/service/ProductService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/util/ProdoctTimerTask.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/hr/shop/serviceImpl/CartServiceImplTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/hr/shop/serviceImpl/ForderServiceImplTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/hr/shop/serviceImpl/ProductServiceImplTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/daoImpl/BaseDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/daoImpl/CategoryDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/daoImpl/ForderDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/daoImpl/ProductDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/daoImpl/CartDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/service/BaseService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/serviceImpl/BaseServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/Constant/Map_Msg.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/action/SorderAction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/action/AccountAction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/Exception/DefaultExceptionHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/response/RestResultGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/response/Ex_UserResponseResult.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/response/ResponseResult.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/action/CategoryAction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/response/UserResponseResult.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/applicationContext-public.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/messages.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/serviceImpl/ForderServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/validatorInterface/UserValid_2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/action/BaseAction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/validatorInterface/ForderValid_1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/validatorInterface/ProductValid_1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/validatorInterface/ProtypeValid_1.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/springmvc.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/serviceImpl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/validatorInterface/UserValid_1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/model/Forder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/model/Protype.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/model/Product.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/action/ProductAction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/Interceptor/TokenInterceptor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/action/UserAction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/action/ForderAction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/action/ProtypeAction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/model/Cart.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/action/CartAction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hr/shop/model/User.java" />
+        <option value="$PROJECT_DIR$/README.md" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\mvn repository" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>RESTful Web Service</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers ProjectPane="true" />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HR-Shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HR-Shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js.eslint.eslintPackage" value="" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.5695565" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/HR-Shop" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/eclipse for javaEE/Eclipse IDE for Java EE Developers_win64/eclipse/workspace/HR-Shop/src/main/java/com/hr/shop/model/User.java" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\eclipse for javaEE\Eclipse IDE for Java EE Developers_win64\eclipse\workspace\HR-Shop\src\main\resources" />
+      <recent name="D:\eclipse for javaEE\Eclipse IDE for Java EE Developers_win64\eclipse\workspace\HR-Shop\src\main\webapp\WEB-INF\springmvc" />
+      <recent name="D:\eclipse for javaEE\Eclipse IDE for Java EE Developers_win64\eclipse\workspace\HR-Shop\src\main\java" />
+      <recent name="D:\eclipse for javaEE\Eclipse IDE for Java EE Developers_win64\eclipse\workspace\HR-Shop\src\main\resources\config" />
+      <recent name="D:\eclipse for javaEE\Eclipse IDE for Java EE Developers_win64\eclipse\workspace\HR-Shop\src\main\resources\model-config" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.hr.shop.validatorInterface" />
+      <recent name="com.hr.shop.response" />
+      <recent name="com.hr.shop.service" />
+      <recent name="com.hr.shop.serviceImpl" />
+      <recent name="com.hr.shop.daoImpl" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\eclipse for javaEE\Eclipse IDE for Java EE Developers_win64\eclipse\workspace\HR-Shop\src\main\java\com\hr\shop\action" />
+      <recent name="D:\eclipse for javaEE\Eclipse IDE for Java EE Developers_win64\eclipse\workspace\HR-Shop\src\main\resources" />
+      <recent name="D:\eclipse for javaEE\Eclipse IDE for Java EE Developers_win64\eclipse\workspace\HR-Shop\src\main\java\com\hr\shop\daoImpl" />
+      <recent name="D:\eclipse for javaEE\Eclipse IDE for Java EE Developers_win64\eclipse\workspace\HR-Shop\src\main\webapp" />
+      <recent name="D:\eclipse for javaEE\Eclipse IDE for Java EE Developers_win64\eclipse\workspace\HR-Shop\src\main\webapp\WEB-INF\lib" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.tomcat7">
+    <configuration default="false" name="ForderServiceImplTest.testSaveOrder (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HR-Shop" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.hr.shop.serviceImpl" />
+      <option name="MAIN_CLASS_NAME" value="com.hr.shop.serviceImpl.ForderServiceImplTest" />
+      <option name="METHOD_NAME" value="testSaveOrder" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="ForderServiceImplTest.testFindAllOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HR-Shop" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.hr.shop.serviceImpl" />
+      <option name="MAIN_CLASS_NAME" value="com.hr.shop.serviceImpl.ForderServiceImplTest" />
+      <option name="METHOD_NAME" value="testFindAllOrder" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="ProductServiceImplTest.testQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HR-Shop" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.hr.shop.serviceImpl" />
+      <option name="MAIN_CLASS_NAME" value="com.hr.shop.serviceImpl.ProductServiceImplTest" />
+      <option name="METHOD_NAME" value="testQuery" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="ProductServiceImplTest.testGet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HR-Shop" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.hr.shop.serviceImpl" />
+      <option name="MAIN_CLASS_NAME" value="com.hr.shop.serviceImpl.ProductServiceImplTest" />
+      <option name="METHOD_NAME" value="testGet" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="ProductServiceImplTest.testFindNewestProduct" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HR-Shop" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.hr.shop.serviceImpl" />
+      <option name="MAIN_CLASS_NAME" value="com.hr.shop.serviceImpl.ProductServiceImplTest" />
+      <option name="METHOD_NAME" value="testFindNewestProduct" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
+      <deployment />
+      <server-settings />
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Java Scratch" factoryName="Java Scratch">
+      <option name="SCRATCH_FILE_ID" value="0" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="HR-Shop" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="tomcat7" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.70" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER" value="false" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="HR-Shop:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_HR-Shop_4" />
+        <option name="JNDI_PORT" value="1010" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="51072" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="HR-Shop:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list size="6">
+      <item index="0" class="java.lang.String" itemvalue="Tomcat Server.tomcat7" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.ForderServiceImplTest.testSaveOrder (1)" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.ForderServiceImplTest.testFindAllOrder" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.ProductServiceImplTest.testQuery" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.ProductServiceImplTest.testGet" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.ProductServiceImplTest.testFindNewestProduct" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.ForderServiceImplTest.testFindAllOrder" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.ProductServiceImplTest.testQuery" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.ProductServiceImplTest.testFindNewestProduct" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.ProductServiceImplTest.testGet" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.ForderServiceImplTest.testSaveOrder (1)" />
+      </list>
+    </recent_temporary>
+    <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8c5be288-8abb-4837-809d-3e08f8360950" name="Default" comment="" />
+      <created>1488801099619</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1488801099619</updated>
+      <workItem from="1488801101120" duration="6685000" />
+      <workItem from="1488853687126" duration="584000" />
+      <workItem from="1488855062738" duration="2384000" />
+      <workItem from="1488858956920" duration="609000" />
+      <workItem from="1488941848835" duration="15000" />
+      <workItem from="1488945995180" duration="3642000" />
+      <workItem from="1488953336591" duration="5907000" />
+      <workItem from="1489049855425" duration="4692000" />
+      <workItem from="1489058482269" duration="2247000" />
+      <workItem from="1489061070501" duration="61000" />
+      <workItem from="1489061449446" duration="5954000" />
+      <workItem from="1489071811210" duration="902000" />
+      <workItem from="1489137582015" duration="1249000" />
+      <workItem from="1489139554410" duration="119000" />
+      <workItem from="1489153710895" duration="1639000" />
+      <workItem from="1489159714401" duration="6456000" />
+      <workItem from="1489201459936" duration="8933000" />
+      <workItem from="1489215681478" duration="992000" />
+      <workItem from="1489233471728" duration="612000" />
+      <workItem from="1489238722185" duration="640000" />
+      <workItem from="1489240124577" duration="20661000" />
+      <workItem from="1489304431960" duration="10598000" />
+      <workItem from="1489387691535" duration="8709000" />
+      <workItem from="1489418539940" duration="16758000" />
+      <workItem from="1489471377086" duration="10063000" />
+      <workItem from="1489492787189" duration="12778000" />
+      <workItem from="1489559748948" duration="878000" />
+      <workItem from="1489563300132" duration="184000" />
+      <workItem from="1489568048628" duration="734000" />
+      <workItem from="1489568800776" duration="1245000" />
+      <workItem from="1489570334142" duration="73000" />
+      <workItem from="1489589817105" duration="6439000" />
+      <workItem from="1489627203082" duration="2121000" />
+      <workItem from="1489639461625" duration="2156000" />
+      <workItem from="1489653845882" duration="2419000" />
+      <workItem from="1489662670404" duration="4985000" />
+      <workItem from="1489674313296" duration="2240000" />
+      <workItem from="1489678392939" duration="162000" />
+      <workItem from="1489719819305" duration="614000" />
+      <workItem from="1489734681802" duration="4589000" />
+      <workItem from="1489899184536" duration="12563000" />
+      <workItem from="1489993458144" duration="1097000" />
+      <workItem from="1489994941298" duration="3329000" />
+      <workItem from="1490000503544" duration="802000" />
+      <workItem from="1490102383151" duration="8468000" />
+      <workItem from="1490143889671" duration="23053000" />
+      <workItem from="1490182808982" duration="690000" />
+      <workItem from="1490183690622" duration="14929000" />
+      <workItem from="1490231657853" duration="3502000" />
+      <workItem from="1490242494757" duration="1200000" />
+      <workItem from="1490249048353" duration="12517000" />
+      <workItem from="1490272162542" duration="1433000" />
+      <workItem from="1490282035288" duration="9547000" />
+      <workItem from="1490316315117" duration="585000" />
+      <workItem from="1490318539404" duration="96000" />
+      <workItem from="1490319053896" duration="11000" />
+      <workItem from="1490322249412" duration="79000" />
+      <workItem from="1490325896659" duration="5386000" />
+      <workItem from="1490339898905" duration="8438000" />
+      <workItem from="1490370553901" duration="594000" />
+      <workItem from="1490410832513" duration="606000" />
+      <workItem from="1490413195809" duration="2000" />
+      <workItem from="1490432726567" duration="119000" />
+      <workItem from="1490433479928" duration="14321000" />
+      <workItem from="1490457608599" duration="718000" />
+      <workItem from="1490496461450" duration="18780000" />
+      <workItem from="1490525322390" duration="2462000" />
+      <workItem from="1490538109862" duration="10401000" />
+      <workItem from="1490579346594" duration="6339000" />
+      <workItem from="1490595495759" duration="530000" />
+      <workItem from="1490601944147" duration="183000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="ForderServiceImplTest_testFindAllOrder - 2017.03.16 at 15h 11m 04s.xml">
+      <configuration name="ForderServiceImplTest.testFindAllOrder" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ForderServiceImplTest_testFindAllOrder - 2017.03.16 at 15h 11m 54s.xml">
+      <configuration name="ForderServiceImplTest.testFindAllOrder" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ProductServiceImplTest_testFindNewestProduct - 2017.03.16 at 00h 38m 30s.xml">
+      <configuration name="ProductServiceImplTest.testFindNewestProduct" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ProductServiceImplTest_testFindNewestProduct - 2017.03.16 at 00h 44m 16s.xml">
+      <configuration name="ProductServiceImplTest.testFindNewestProduct" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ProductServiceImplTest_testGet - 2017.03.16 at 00h 15m 01s.xml">
+      <configuration name="ProductServiceImplTest.testGet" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ProductServiceImplTest_testGet - 2017.03.16 at 00h 20m 34s.xml">
+      <configuration name="ProductServiceImplTest.testGet" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ProductServiceImplTest_testGet - 2017.03.16 at 00h 21m 13s.xml">
+      <configuration name="ProductServiceImplTest.testGet" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ProductServiceImplTest_testQuery - 2017.03.16 at 00h 11m 24s.xml">
+      <configuration name="ProductServiceImplTest.testQuery" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ProductServiceImplTest_testQuery - 2017.03.16 at 00h 11m 27s.xml">
+      <configuration name="ProductServiceImplTest.testQuery" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ProductServiceImplTest_testQuery - 2017.03.16 at 10h 03m 09s.xml">
+      <configuration name="ProductServiceImplTest.testQuery" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="325508000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3781965" sideWeight="0.5028612" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23640484" sideWeight="0.49227798" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24892704" sideWeight="0.507722" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39973083" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2913257" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27986908" sideWeight="0.49713877" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/model/Pager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="36" column="23" lean-forward="false" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/util/FileUploadUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="79" column="21" lean-forward="false" selection-start-line="79" selection-start-column="21" selection-end-line="79" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/util/MD5Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="98" column="19" lean-forward="false" selection-start-line="98" selection-start-column="19" selection-end-line="98" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/util/TokenUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="25" column="19" lean-forward="false" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/serviceImpl/CategoryServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="13" column="7" lean-forward="false" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/serviceImpl/ProductServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="14" column="7" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/serviceImpl/SorderServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="10" column="40" lean-forward="false" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/service/BaseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/serviceImpl/BaseServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="95" column="0" lean-forward="true" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/Constant/Map_Msg.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="55" lean-forward="false" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/conn.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="9" lean-forward="true" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/action/AccountAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/jsonView/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/response/ResponseResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/response/UserResponseResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="17" column="94" lean-forward="false" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/response/RestResultGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="19" column="14" lean-forward="false" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/response/Ex_UserResponseResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/applicationContext-public.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="13" column="53" lean-forward="false" selection-start-line="13" selection-start-column="53" selection-end-line="13" selection-end-column="53" />
+          <folding>
+            <element signature="n#context:component-scan#0;n#beans#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="639">
+          <caret line="190" column="17" lean-forward="false" selection-start-line="190" selection-start-column="17" selection-end-line="190" selection-end-column="17" />
+          <folding>
+            <element signature="n#dependency#30;n#dependencies#0;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#dependency#31;n#dependencies#0;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#dependency#32;n#dependencies#0;n#project#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/messages.properties" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/daoImpl/ForderDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-99">
+          <caret line="34" column="18" lean-forward="false" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/Exception/DefaultExceptionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="25" column="34" lean-forward="true" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/serviceImpl/ForderServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="78" column="9" lean-forward="true" selection-start-line="78" selection-start-column="9" selection-end-line="78" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="71" column="35" lean-forward="true" selection-start-line="71" selection-start-column="35" selection-end-line="71" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/messages.properties" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/ValidationMessages.properties" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/model/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/action/BaseAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/validatorInterface/ForderValid_1.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/validatorInterface/ProductValid_1.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/validatorInterface/ProtypeValid_1.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/validatorInterface/ValidInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/springmvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="29" column="44" lean-forward="false" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/action/CategoryAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/hr/shop/serviceImpl/ForderServiceImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-198">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="28" column="7" lean-forward="false" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/serviceImpl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="120" column="4" lean-forward="false" selection-start-line="120" selection-start-column="4" selection-end-line="120" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/validatorInterface/UserValid_1.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/model/Protype.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/action/SorderAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/model/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="39" column="42" lean-forward="false" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/action/ProductAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="69" column="44" lean-forward="true" selection-start-line="69" selection-start-column="44" selection-end-line="69" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/Interceptor/TokenInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="30" column="42" lean-forward="false" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/action/ForderAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="109" column="67" lean-forward="true" selection-start-line="109" selection-start-column="67" selection-end-line="109" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/action/UserAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="266" column="120" lean-forward="false" selection-start-line="266" selection-start-column="120" selection-end-line="266" selection-end-column="120" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/action/ProtypeAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="53" column="29" lean-forward="false" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/model/Cart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="24" column="51" lean-forward="true" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/model/Forder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="84" column="34" lean-forward="true" selection-start-line="84" selection-start-column="34" selection-end-line="84" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="35" column="13" lean-forward="false" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hr/shop/action/CartAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="73" column="86" lean-forward="false" selection-start-line="73" selection-start-column="86" selection-end-line="73" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="117">
+            <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <folding>
+              <marker date="1490602126009" expanded="true" signature="1324:1951" ph="{...}" />
+              <marker date="1490602126009" expanded="true" signature="1423:1949" ph="[...]" />
+              <marker date="1490602126009" expanded="true" signature="1429:1686" ph="{&quot;id&quot;: 1...}" />
+              <marker date="1490602126009" expanded="true" signature="1483:1680" ph="{&quot;id&quot;: 4...}" />
+              <marker date="1490602126009" expanded="true" signature="1595:1672" ph="{&quot;id&quot;: 2...}" />
+              <marker date="1490602126009" expanded="true" signature="1692:1945" ph="{&quot;id&quot;: 6...}" />
+              <marker date="1490602126009" expanded="true" signature="1745:1939" ph="{&quot;id&quot;: 4...}" />
+              <marker date="1490602126009" expanded="true" signature="1855:1931" ph="{&quot;id&quot;: 2...}" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>HR-Shop:war exploded</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.5695565" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Web</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.5695565" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.5695565" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.5695565" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>HR-Shop</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.5695565" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: org.aspectj:aspectjweaver:1.8.9</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.5695565" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
