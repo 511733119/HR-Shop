@@ -151,8 +151,8 @@ public class UserAction extends BaseAction<User> {
 	/**
 	 * 判断验证码是否正确
 	 */
-	@RequestMapping(value = "/{phone}/checkCode" ,method = RequestMethod.GET,produces="application/json;charset=UTF-8")
-	public String checkCode(@Validated({ValidInterface.class})User u , BindingResult errors ,@PathVariable("phone") String phone , @RequestParam("code") String code){
+	@RequestMapping(value = "/checkCode" ,method = RequestMethod.POST,produces="application/json;charset=UTF-8")
+	public String checkCode(@Validated({ValidInterface.class})User u , BindingResult errors ,@RequestParam("phone") String phone , @RequestParam("code") String code){
 		logger.debug("Entering checkCode()");
 		//如果输入不合法
 		if(errors.hasErrors()){
@@ -184,8 +184,8 @@ public class UserAction extends BaseAction<User> {
 	/**
 	 * 用户输入正确的验证码后，填入密码进行注册
 	 */
-	@RequestMapping(value = "/{phone}/register" ,method = RequestMethod.GET,produces="application/json;charset=UTF-8")
-	public String register(@PathVariable("phone") String phone , @RequestParam("password") String password , @Validated({ValidInterface.class}) User u, BindingResult errors){
+	@RequestMapping(value = "/register" ,method = RequestMethod.POST,produces="application/json;charset=UTF-8")
+	public String register(@RequestParam("phone") String phone , @RequestParam("password") String password , @Validated({ValidInterface.class}) User u, BindingResult errors){
 		logger.debug("Entering register()");
 		//如果输入不合法
 		if(errors.hasErrors()){
@@ -243,8 +243,8 @@ public class UserAction extends BaseAction<User> {
 	/**
 	 * 用户改变用户名
 	 */
-	@RequestMapping(value = "/{id}/updateUsername" ,method = RequestMethod.PATCH,produces="application/json;charset=UTF-8")
-	public String updateUsername(@PathVariable("id") int id, @RequestParam("username") String username ,@Validated({ValidInterface.class}) User u , BindingResult errors){
+	@RequestMapping(value = "/updateUsername" ,method = RequestMethod.PATCH,produces="application/json;charset=UTF-8")
+	public String updateUsername(@RequestParam("id") int id, @RequestParam("username") String username ,@Validated({ValidInterface.class}) User u , BindingResult errors){
 		// 如果不匹配
 		if (errors.hasErrors()){
 			throw new RuntimeException(Map_Msg.PARAM_IS_INVALID);
@@ -254,27 +254,29 @@ public class UserAction extends BaseAction<User> {
 			return RestResultGenerator.genResult(Map_Msg.HTTP_BAD_REQUEST,Map_Msg.THE_NAME_IS_EXIST).toString();
 		}
 
-		User user = userService.get(id);//根据用户id获得该用户对象
-		user.setUsername(username);//设置新的用户名
-		userService.update(user);//更新用户
+		userService.updateUsername(id,username);//设置新的用户名,更新用户
+//		User user = userService.get(id);//根据用户id获得该用户对象
+//		user.setUsername(username);
+//		userService.update(user);//
 		return RestResultGenerator.genResult(Map_Msg.HTTP_OK,Map_Msg.UPDATE_SUCCESS).toString();
 	}
 
 	/**
 	 * 用户修改密码
 	 */
-	@RequestMapping(value = "/{id}/updatePassword" ,method = RequestMethod.PATCH,produces="application/json;charset=UTF-8")
-	public String updatePassword(@PathVariable("id") int id, @RequestParam("password") String password ,@Validated({ValidInterface.class}) User u , BindingResult errors){
+	@RequestMapping(value = "/updatePassword" ,method = RequestMethod.PATCH,produces="application/json;charset=UTF-8")
+	public String updatePassword(@RequestParam("id") int id, @RequestParam("password") String password ,@Validated({ValidInterface.class}) User u , BindingResult errors){
 
 		if(errors.hasErrors()){
 			throw new RuntimeException(Map_Msg.PARAM_IS_INVALID);
 		}
-		User user = userService.get(id);//根据用户id获得该用户对象
-		if(user == null){
-			throw new RuntimeException(Map_Msg.PARAM_IS_INVALID);
-		}
-		user.setPassword(password);//设置新的用户名
-		userService.update(user);//更新用户
+//		User user = userService.get(id);//根据用户id获得该用户对象
+//		if(user == null){
+//			throw new RuntimeException(Map_Msg.PARAM_IS_INVALID);
+//		}
+//		user.setPassword(password);//设置新的密码
+//		userService.update(user);//更新用户
+		userService.updatePassword(id,password);//设置新的密码，更新用户
 		return RestResultGenerator.genResult(Map_Msg.HTTP_OK,Map_Msg.UPDATE_SUCCESS).toString();
 	}
 

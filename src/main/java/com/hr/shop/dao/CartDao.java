@@ -32,4 +32,12 @@ public interface CartDao extends BaseDao<Cart> {
 	 * @return
 	 */
 	public int checkInventory(String[] ptid  , String[] number);
+
+
+	/**
+	 * 更新购物项的数量
+	 * @param id
+	 * @param number
+	 */
+	public void updateCartNumber(int id , int number);
 }

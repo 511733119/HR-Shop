@@ -118,8 +118,19 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
 		User user =  userDao.getAllUserName(name);
 		return user == null? true : false;
 	}
+
 	@Override
 	public boolean isMobileNumber(String mobiles) {
 		return Pattern.matches("^((13[0-9])|(15[^4,\\D])|(18[0-9]))\\d{8}$", mobiles)?true:false;
+	}
+
+	@Override
+	public void updateUsername(int id, String username) {
+		userDao.updateUsername(id , username);
+	}
+
+	@Override
+	public void updatePassword(int id, String password) {
+		userDao.updatePassword(id , password);
 	}
 }

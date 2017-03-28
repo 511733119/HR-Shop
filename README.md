@@ -24,14 +24,14 @@ HR-Shop是一个基于自营模式的商城app，专注于在校内售卖零食�
 _（括号里为参数列表说明）_
 
 * 查询全部商品种类  
-GET  /api/categories
+GET  /api/categories/
 
 * 首页根据页码展示新上架/销量最高商品数据(flag,页号)    
 （flag=1表示取出新上架商品，flag=2表示取出销量由高到低商品）  
-GET /api/products/flag/{flag}?pageNum=1  
+GET /api/products/flag?flag=flag&pageNum=1  
 
 * 分类页根据页码展示该类别下的商品(商品种类cid,页号)  
-GET /api/products/category/{cid}?pageNum=1  
+GET /api/products/category?cid=cid&pageNum=1  
 
 * 进入商品详情页传递商品种类数据（商品id）  
 GET /api/products/details/{id}
@@ -40,13 +40,13 @@ GET /api/products/details/{id}
 GET /api/products/searchList/
 
 * 按关键字查询相关商品
-GET /api/products/keyword/{name}?pageNum=1 
+GET /api/products/keyword/?name=name&pageNum=1 
 
 * 商品添加到购物车(商品细分种类ptid，数量，用户id,token)  
 POST /api/protypes/cart/add?ptid=1&number=1&id=1&token=token  
 
 * 修改购物车商品数量(数量，购物项id)  
-PATCH /api/carts/{id}?number=1
+PATCH /api/carts/?id=id&number=1
 
 * 删除购物车项(购物项id)  
 DELETE /api/carts/{id}
@@ -104,11 +104,11 @@ POST /api/forders/user?id=1&order_json=order_json&token=token
 * 查询用户的订单记录(用户id，页号,token)  
 GET /api/forders/user?id=1&pageNum=1&token=token
 
-* 删除订单(订单id，用户id,token)
-DELETE /api/forders/{fid}?id=1&token=token  
+* 删除订单(订单fid，用户id,token)
+DELETE /api/forders/?fid=fid&id=1&token=token  
 
 * 取消订单(订单id，用户id,token)  
-PATCH /api/forders/{fid}?id=1&token=token  
+PATCH /api/forders/id=1&token=token  
 
 * 账号密码登录(返回token给客户端)(账号，密码)  
 POST /api/users/login?input=input&password=password
@@ -174,16 +174,16 @@ POST /api/users/registerCode?phone=phone
 POST /api/users/loginCode?phone=phone
 
 * 判断验证码是否正确（电话号码，验证码）  
-GET /api/users/{phone}/checkCode?code=code
+POST /api/users/checkCode?phone=phone&code=code
 
 * 用户输入正确的验证码后，填入密码进行注册（电话号码，密码）  
-POST /api/users/{phone}/register?password=password
+POST /api/users/register?phone=phone&password=password
 
 * 用户修改用户名(匹配3-5个汉字，或3-10个字节（中文，英文，数字及下划线(_)）)  
-PATCH /api/users/{id}/updateUsername?username=username
+PATCH /api/users/updateUsername?id=1&username=username
 
 * 用户修改密码(匹配6-32个字符，可包含中文，英文，数字及下划线(_))  
-PATCH /api/users/{id}/updatePassoword?password=password
+PATCH /api/users/updatePassoword?id=1&password=password
 
 **统一返回格式：{"status":"HTTP状态码" , "msg":"消息"}** _（有关用户登录注册的操作将返回token，username等数据）_  
 

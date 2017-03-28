@@ -10,6 +10,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.UnsupportedEncodingException;
+
 /**
  * @author hjc
  * 商品Action，实现商品模块的相关操作
@@ -21,9 +23,9 @@ public class ProductAction extends BaseAction<Product>{
 	/**
 	 * 首页主体展示商品由销量高到低排列，顶部轮播图展示新上架商品数据
 	 */
-	@RequestMapping(value = "/flag/{flag}", method = RequestMethod.GET,produces="application/json;charset=UTF-8" )
+	@RequestMapping(value = "/flag", method = RequestMethod.GET,produces="application/json;charset=UTF-8" )
 	@JsonView(View.son2.class)
-	public String findNewest_Or_HighestSalesProduct(@PathVariable("flag") int flag , @RequestParam("pageNum") int pageNum){
+	public String findNewest_Or_HighestSalesProduct(@RequestParam("flag") int flag , @RequestParam("pageNum") int pageNum){
 		logger.debug("Entering findNewest_Or_HighestSalesProduct() :");
 		if(pageNum <= 0){
 			throw new RuntimeException(Map_Msg.PARAM_IS_INVALID);
@@ -44,9 +46,9 @@ public class ProductAction extends BaseAction<Product>{
 	/**
 	 * 分类页展示分类数据
 	 */
-	@RequestMapping(value = "/category/{cid}", method = RequestMethod.GET,produces="application/json;charset=UTF-8")
+	@RequestMapping(value = "/category", method = RequestMethod.GET,produces="application/json;charset=UTF-8")
 	@JsonView(View.son2.class)
-	public String listProduct(@PathVariable("cid") int cid , @RequestParam("pageNum") int pageNum){
+	public String listProduct(@RequestParam("cid") int cid , @RequestParam("pageNum") int pageNum){
 		logger.debug("Entering listProduct() :");
 		if(cid <= 0 || pageNum <= 0){
 			throw new RuntimeException(Map_Msg.PARAM_IS_INVALID);
@@ -80,6 +82,7 @@ public class ProductAction extends BaseAction<Product>{
 	public String getSearchList(){
 		logger.debug("Entering getSearchList() :");
 		jsonList = productService.getSearchList();
+		logger.debug("Ending getSearchList()");
 		return RestResultGenerator.genResult(Map_Msg.HTTP_OK,jsonList).toString();
 	}
 
@@ -88,9 +91,17 @@ public class ProductAction extends BaseAction<Product>{
 	 * @return
 	 */
 	@JsonView(View.son2.class)
-	@RequestMapping(value = "/keyword/{name}", method = RequestMethod.GET,produces="application/json;charset=UTF-8")
-	public String getSimilarProduct(@PathVariable("name") String name, @RequestParam("pageNum") int pageNum , @Validated({ValidInterface.class}) Product product , BindingResult errors){
+	@RequestMapping(value = "/keyword/", method = RequestMethod.GET,produces="application/json;charset=UTF-8")
+	public String getSimilarProduct(@RequestParam("name") String name, @RequestParam("pageNum") int pageNum , @Validated({ValidInterface.class}) Product product , BindingResult errors){
 
+		logger.debug("Entering getSimilarProduct()");
+
+		try {
+		    name = new String(name.getBytes("iso-8859-1"),"UTF-8");//对中文进行解码，先转为iso-8859-1字节流，再转为utf8字符流
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		logger.debug("关键词:{}",name);
 		if (errors.hasErrors()){
 			throw new RuntimeException(Map_Msg.PARAM_IS_INVALID);
 		}
@@ -98,6 +109,8 @@ public class ProductAction extends BaseAction<Product>{
 			throw new RuntimeException(Map_Msg.PARAM_IS_INVALID);
 		}
 		jsonList = productService.getSimilarProduct(name , pageNum , 10);
+
+		logger.debug("Ending getSimilarProduct()");
 		return RestResultGenerator.genResult(Map_Msg.HTTP_OK , jsonList).toString();
 	}
 }

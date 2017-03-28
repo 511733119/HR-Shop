@@ -51,4 +51,18 @@ public interface UserService extends BaseService<User> {
 	 * @return
 	 */
 	public boolean getAllUserName(String name);
+
+	/**
+	 * 更新用户名
+	 * @param id
+	 * @param username
+	 */
+	public void updateUsername(int id, String username);
+
+	/**
+	 * 更新密码
+	 * @param id
+	 * @param password
+	 */
+	public void updatePassword(int id, String password);
 }

@@ -1,6 +1,9 @@
 package com.hr.shop.model;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.hr.shop.jsonView.View;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -19,6 +22,7 @@ public class Account implements java.io.Serializable {
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(View.view.class)
 	private Integer id;
 
 	/**
@@ -30,21 +34,18 @@ public class Account implements java.io.Serializable {
 	/**
 	 * 管理员密码
 	 */
-	@JsonIgnore
 	@Column(name = "accountpwd", length = 20)
 	private String accountpwd;
 
 	/**
 	 * 创建日期
 	 */
-	@JsonIgnore
 	@Column(name = "create_date", length = 19)
 	private Timestamp create_date;
 
 	/**
 	 * 更新日期
 	 */
-	@JsonIgnore
 	@Column(name = "update_date", length = 19)
 	private Timestamp update_date;
 	// Constructors
@@ -60,7 +61,6 @@ public class Account implements java.io.Serializable {
 	}
 
 	// Property accessors
-
 	public Integer getId() {
 		return this.id;
 	}

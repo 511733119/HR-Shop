@@ -25,8 +25,8 @@ public class CartAction extends BaseAction<Cart> {
 	/**
 	 * 修改购物车商品数量时触发
 	 */
-	@RequestMapping(value = "/{id}", method = RequestMethod.PATCH ,produces="application/json;charset=UTF-8")
-	public String updateCartNumber(@PathVariable("id") int id, @RequestParam("number") int number  , @Validated({ValidInterface.class})Cart c , BindingResult errors){
+	@RequestMapping(value = "/", method = RequestMethod.PATCH ,produces="application/json;charset=UTF-8")
+	public String updateCartNumber(@RequestParam("id") int id, @RequestParam("number") int number  , @Validated({ValidInterface.class})Cart c , BindingResult errors){
 
 		if(errors.hasErrors()){
 			throw new RuntimeException(Map_Msg.PARAM_IS_INVALID);
@@ -42,9 +42,10 @@ public class CartAction extends BaseAction<Cart> {
 		if ( number > inventory){
 			throw new RuntimeException(Map_Msg.UPDATE_NUMBER_ERROR);
 		}
-		cart.setNumber(number);
-
-		cartService.update(cart);//执行更新操作
+//		cart.setNumber(number);
+//
+//		cartService.update(cart);
+		cartService.updateCartNumber(id,number);//执行更新操作
 
 		logger.debug("Ending updateCartNumber()");
 		return RestResultGenerator.genResult(Map_Msg.HTTP_OK,
@@ -99,7 +100,7 @@ public class CartAction extends BaseAction<Cart> {
 //	}
 
 	/**
-	 * 用户点击立即下单，检测库存是否足够，是则跳转到错误显示页面，否则跳转到填写个人信息下单页
+	 * 用户点击立即下单，检测库存是否足够，是则跳转到填写个人信息下单页，否则跳转到错误显示页面
 	 * @return
 	 */
 	@RequestMapping(value = "/buy", method = RequestMethod.GET,produces="application/json;charset=UTF-8" )
@@ -123,7 +124,7 @@ public class CartAction extends BaseAction<Cart> {
 			throw new RuntimeException(Map_Msg.PLACE_ORDER_ERROR);
 		}
 		//库存足够，成功下单
-		return RestResultGenerator.genResult(Map_Msg.HTTP_OK,Map_Msg.SAVE_ORDER_SUCCESS).toString();
+		return RestResultGenerator.genResult(Map_Msg.HTTP_OK,Map_Msg.SUCCESS).toString();
 	}
 
 }

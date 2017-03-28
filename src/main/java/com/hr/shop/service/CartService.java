@@ -24,7 +24,7 @@ public interface CartService extends BaseService<Cart> {
 	 * @param user
 	 * @param protype
 	 */
-	public void saveCart(List<Cart> List, int number, User user, Protype protype);
+	public void saveCart(List<Cart> list, int number, User user, Protype protype);
 	/**
 	 * 删除所选购物车项
 	 * @param ids 勾选的购物车项id拼接成的字符串
@@ -38,4 +38,11 @@ public interface CartService extends BaseService<Cart> {
 	 * @return
 	 */
 	public int checkInventory(String[] ptid , String[] number);
+
+	/**
+	 * 更新购物项的数量
+	 * @param id
+	 * @param number
+	 */
+	public void updateCartNumber(int id , int number);
 }

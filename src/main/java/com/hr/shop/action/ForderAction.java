@@ -73,12 +73,9 @@ public class ForderAction extends BaseAction<Forder> {
 	 * 删除订单
 	 * @return
 	 */
-	@RequestMapping(value = "/{fid}" ,method = RequestMethod.DELETE,produces="application/json;charset=UTF-8")
-	public String deleteOrder(@PathVariable("fid") String fid , @Validated({ValidInterface.class}) Forder f , BindingResult errors ){
+	@RequestMapping(value = "/" ,method = RequestMethod.DELETE,produces="application/json;charset=UTF-8")
+	public String deleteOrder(@PathVariable("fid") String fid ){
 		logger.debug("Entering deleteOrder()");
-		if(errors.hasErrors()){
-			throw new RuntimeException(Map_Msg.PARAM_IS_INVALID);
-		}
 		Forder forder = forderService.getOrder(fid);
 		//查找是否存在该订单
 		if(forder == null){
@@ -98,7 +95,7 @@ public class ForderAction extends BaseAction<Forder> {
 	 * 取消订单，修改订单状态及恢复库存
 	 * @return
 	 */
-	@RequestMapping(value = "/{fid}" ,method = RequestMethod.PATCH,produces="application/json;charset=UTF-8")
+	@RequestMapping(value = "/" ,method = RequestMethod.PATCH,produces="application/json;charset=UTF-8")
 	public String cancelOrder(@PathVariable("fid")String fid){
 
 		if( fid == null || "".equals(fid)){

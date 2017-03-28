@@ -13,4 +13,6 @@ public class View {
 
     public interface son2 extends summary{} //过滤protypeSet中的product
 
+    public interface view{}
+
 }

@@ -58,4 +58,9 @@ public class CartDaoImpl extends BaseDaoImpl<Cart> implements CartDao {
 							.intValue();
 	}
 
+	@Override
+	public void updateCartNumber(int id, int number) {
+		String hql ="UPDATE Cart c SET c.number = :number WHERE c.id = :id";
+		getSession().createQuery(hql).setInteger("number",number).setInteger("id",id).executeUpdate();
+	}
 }

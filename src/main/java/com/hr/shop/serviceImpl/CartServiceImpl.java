@@ -26,14 +26,16 @@ public class CartServiceImpl extends BaseServiceImpl<Cart> implements CartServic
 	}
 	
 	@Override
-	public void saveCart(List<Cart> List, int number, User user,Protype protype) {
+	public void saveCart(List<Cart> list, int number, User user,Protype protype) {
 		//标志是否有重复数据
 		boolean isHave = false;
-		for(Cart cart : List){
+		int id ;
+		for(Cart cart : list){
 			if(cart.getProtype().getId() == protype.getId()){
 				//直接更新数量
-				cart.setNumber(cart.getNumber()+number);
-				update(cart);
+//				cart.setNumber(cart.getNumber()+number);
+				id = cart.getId();
+				updateCartNumber(id , cart.getNumber()+number);
 				isHave = true;
 				return;
 			}
@@ -59,5 +61,10 @@ public class CartServiceImpl extends BaseServiceImpl<Cart> implements CartServic
 			return 1;//库存不足，无法下单
 		}
 		return 0;//库存足够，可以下单
+	}
+
+	@Override
+	public void updateCartNumber(int id, int number) {
+		cartDao.updateCartNumber(id,number);
 	}
 }

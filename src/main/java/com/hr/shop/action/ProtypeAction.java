@@ -27,7 +27,7 @@ public class ProtypeAction extends BaseAction<Protype> {
 	/**
 	 * 添加购物车操作
 	 */
-	@RequestMapping(value = "/cart/add" , method = RequestMethod.POST,produces="application/json;charset=UTF-8")
+	@RequestMapping(value = "/cart/add" , method = RequestMethod.POST ,produces="application/json;charset=UTF-8")
 	public String addCart(@RequestParam("ptid") int ptid, @RequestParam("id") int id, @RequestParam("number") int number , @Validated({ValidInterface.class})User u , BindingResult errors){
 		logger.debug("Entering addCart() :");
 
@@ -39,11 +39,11 @@ public class ProtypeAction extends BaseAction<Protype> {
 		}
 		//数量
 		int inventory = 0;
-		Protype protype = protypeService.get(id);
+		Protype protype = protypeService.get(ptid);
 		if(protype == null){
 			throw new RuntimeException(Map_Msg.PARAM_IS_INVALID);
 		}
-		inventory =protype.getInventory();	//获得该商品库存
+		inventory = protype.getInventory();	//获得该商品库存
 		//如果数量大于库存,则输出错误
 		if ( number >= inventory){
 			throw new RuntimeException(Map_Msg.UPDATE_NUMBER_ERROR);
