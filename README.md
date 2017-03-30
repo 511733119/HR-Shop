@@ -1,4 +1,4 @@
-﻿HR-Shop
+﻿##  HR-Shop
 
 HR-Shop是一个基于自营模式的商城app，专注于在校内售卖零食、烟酒等，配送上门，以方便学生足不出户购买零食的意愿，以及解决学校小卖部深夜不开店的烦恼。此为app服务端代码。
 
@@ -7,7 +7,7 @@ HR-Shop是一个基于自营模式的商城app，专注于在校内售卖零食�
 
 项目管理：Maven  
 开发框架：Spring,SpringMVC,Hibernate  
-缓存：ehcache做商品首页缓存，redis做短信验证码缓存  
+缓存：ehcache，redis   
 数据验证:Hibernate Validator  
 日志工具：Slf4j + Log4j  
 数据库：MySQL  
@@ -16,7 +16,7 @@ HR-Shop是一个基于自营模式的商城app，专注于在校内售卖零食�
 
 -----
 ### 功能
-基于Restful风格开发，目前基本已实现了前台需要的功能，包括登录注册，商品展示，购物车，订单，异常处理等模块，后续将开发管理系统进行数据的管理。
+基于Restful风格开发，目前基本已实现了前台需要的功能，包括登录注册，商品展示，购物车，订单，异常处理，数据校验等，后续将开发管理系统进行数据的管理。
 
 -----
 ## API
@@ -24,17 +24,17 @@ HR-Shop是一个基于自营模式的商城app，专注于在校内售卖零食�
 _（括号里为参数列表说明）_
 
 * 查询全部商品种类  
-GET  /api/categories/
+GET  /api/categories/ 
 
 * 首页根据页码展示新上架/销量最高商品数据(flag,页号)    
 （flag=1表示取出新上架商品，flag=2表示取出销量由高到低商品）  
-GET /api/products/flag?flag=flag&pageNum=1  
+GET /api/products/flag/{flag}?pageNum=1 
 
 * 分类页根据页码展示该类别下的商品(商品种类cid,页号)  
-GET /api/products/category?cid=cid&pageNum=1  
+GET /api/products/category/{cid}?pageNum=1  
 
 * 进入商品详情页传递商品种类数据（商品id）  
-GET /api/products/details/{id}
+GET /api/products/details/{id}    
 
 * 搜索页面显示推荐的搜索关键字
 GET /api/products/searchList/
@@ -46,7 +46,7 @@ GET /api/products/keyword/?name=name&pageNum=1
 POST /api/protypes/cart/add?ptid=1&number=1&id=1&token=token  
 
 * 修改购物车商品数量(数量，购物项id)  
-PATCH /api/carts/?id=id&number=1
+PUT /api/carts/{id}?number=1
 
 * 删除购物车项(购物项id)  
 DELETE /api/carts/{id}
@@ -105,10 +105,10 @@ POST /api/forders/user?id=1&order_json=order_json&token=token
 GET /api/forders/user?id=1&pageNum=1&token=token
 
 * 删除订单(订单fid，用户id,token)
-DELETE /api/forders/?fid=fid&id=1&token=token  
+DELETE /api/forders/{fid}?id=1&token=token  
 
 * 取消订单(订单id，用户id,token)  
-PATCH /api/forders/id=1&token=token  
+PUT /api/forders/{fid}?id=1&token=token  
 
 * 账号密码登录(返回token给客户端)(账号，密码)  
 POST /api/users/login?input=input&password=password
@@ -180,12 +180,13 @@ POST /api/users/checkCode?phone=phone&code=code
 POST /api/users/register?phone=phone&password=password
 
 * 用户修改用户名(匹配3-5个汉字，或3-10个字节（中文，英文，数字及下划线(_)）)  
-PATCH /api/users/updateUsername?id=1&username=username
+PUT /api/users/updateUsername?id=1&username=username
 
 * 用户修改密码(匹配6-32个字符，可包含中文，英文，数字及下划线(_))  
-PATCH /api/users/updatePassoword?id=1&password=password
+PUT /api/users/updatePassoword?id=1&password=password
 
-**统一返回格式：{"status":"HTTP状态码" , "msg":"消息"}** _（有关用户登录注册的操作将返回token，username等数据）_  
+**统一返回格式：error_code:0  message:"message" data:data}  
+error_code为0时表示请求成功，为-1时表示出现错误，此时data为空** 
 
 
 ### 开发周期
