@@ -4,11 +4,12 @@ import com.fasterxml.jackson.annotation.JsonView;
 import com.hr.shop.Constant.Map_Msg;
 import com.hr.shop.jsonView.View;
 import com.hr.shop.model.*;
-import com.hr.shop.response.RestResultGenerator;
 import com.hr.shop.validatorInterface.ValidInterface;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 /**
  * @author hjc
@@ -24,19 +25,19 @@ public class ForderAction extends BaseAction<Forder> {
 	 *  期望格式	String json = "{'name':'海俊','address':'清风阁','remark':'加两双筷子','phone':'123124325235','sorderSet':[{'id':1,'number':43,'protype':{'id':4,'name':'ddd','pic':'4.jpg','inventory':100,'product':{'id':2,'name':'bbb','price':23}}},{'id':6,'number':3,'protype':{'id':4,'name':'ddd','pic':'4.jpg','inventory':50,'product':{'id':2,'name':'bbb','price':23}}}]}";
 	 */
 	@RequestMapping(value = "/user" ,method = RequestMethod.POST,produces="application/json;charset=UTF-8")
-	public String saveOrder(@RequestParam("id") int id, @RequestBody String order_json, @Validated({ValidInterface.class}) User u , BindingResult errors){
+	public Map<String,Object> saveOrder(int id, @RequestBody String order_json, @Validated({ValidInterface.class}) User u , BindingResult errors){
 		logger.debug("Entering saveOrder() :");
 		if(errors.hasErrors()){
-			throw new RuntimeException(Map_Msg.PARAM_IS_INVALID);
+			return productService.errorRespMap(respMap ,Map_Msg.PARAM_IS_INVALID );
 		}
 		if(order_json == null || "".equals(order_json)){
-			throw new RuntimeException(Map_Msg.PARAM_IS_INVALID);
+			return productService.errorRespMap(respMap ,Map_Msg.PARAM_IS_INVALID );
 		}
 		logger.debug("json:{}, userid :{}",order_json, id);
 
 		User user = new User(id);
 		if(user == null){
-			throw new RuntimeException(Map_Msg.PARAM_IS_INVALID);
+			return productService.errorRespMap(respMap ,Map_Msg.PARAM_IS_INVALID );
 		}
 		Status status = new Status(1);
 		Forder forder = new Forder();
@@ -45,7 +46,7 @@ public class ForderAction extends BaseAction<Forder> {
 		forderService.saveOrder(order_json, user, status, forder);
 
 		logger.debug("Ending saveOrder() :");
-		return RestResultGenerator.genResult(Map_Msg.HTTP_OK, Map_Msg.SAVE_ORDER_SUCCESS).toString();
+		return productService.successRespMap(respMap , Map_Msg.SAVE_ORDER_SUCCESS , "");
 	}
 
 	/**
@@ -54,57 +55,57 @@ public class ForderAction extends BaseAction<Forder> {
 	 */
 	@JsonView(View.son.class)
 	@RequestMapping(value = "/user" ,method = RequestMethod.GET,produces="application/json;charset=UTF-8")
-	public String findAllOrder(@RequestParam("id") int id, @RequestParam("pageNum") int pageNum , @Validated({ValidInterface.class})User u, BindingResult errors){
+	public Map<String,Object> findAllOrder( int id, int pageNum , @Validated({ValidInterface.class})User u, BindingResult errors){
 		logger.debug("Entering findAllOrder() :");
 		if(errors.hasErrors()){
-			throw new RuntimeException(Map_Msg.PARAM_IS_INVALID);
+			return productService.errorRespMap(respMap ,Map_Msg.PARAM_IS_INVALID );
 		}
 		if(pageNum <= 0){
-			throw new RuntimeException(Map_Msg.PARAM_IS_INVALID);
+			return productService.errorRespMap(respMap ,Map_Msg.PARAM_IS_INVALID );
 		}
 		logger.debug("uid:{}, pageNum :{}",id, pageNum);
 		jsonList = forderService.findAllOrder(id , pageNum , 10 );
 		logger.debug("Order:{}",jsonList);
 		logger.debug("Ending findAllOrder() :");
-		return RestResultGenerator.genResult(Map_Msg.HTTP_OK , jsonList).toString();
+		return productService.successRespMap(respMap , Map_Msg.SUCCESS , jsonList);
 	}
 
 	/**
 	 * 删除订单
 	 * @return
 	 */
-	@RequestMapping(value = "/" ,method = RequestMethod.DELETE,produces="application/json;charset=UTF-8")
-	public String deleteOrder(@PathVariable("fid") String fid ){
+	@RequestMapping(value = "/{fid}" ,method = RequestMethod.DELETE,produces="application/json;charset=UTF-8")
+	public Map<String,Object> deleteOrder(@PathVariable("fid") String fid ){
 		logger.debug("Entering deleteOrder()");
 		Forder forder = forderService.getOrder(fid);
 		//查找是否存在该订单
 		if(forder == null){
 			//提醒无此订单
-			throw new RuntimeException(Map_Msg.WITHOUT_THIS_ORDER);
+			return productService.errorRespMap(respMap ,Map_Msg.WITHOUT_THIS_ORDER );
 		}
 		int result = forderService.deleteOrder(fid);
+		logger.debug("Ending deleteOrder()");
 		if(result == 1){
 			//删除订单成功
-			respRes = RestResultGenerator.genResult(Map_Msg.HTTP_OK ,Map_Msg.DELETE_SUCCESS);
+			productService.successRespMap(respMap , Map_Msg.DELETE_SUCCESS , "");
 		}
-		logger.debug("Ending deleteOrder()");
-		return respRes.toString();
+		return respMap;
 	}
 
 	/**
 	 * 取消订单，修改订单状态及恢复库存
 	 * @return
 	 */
-	@RequestMapping(value = "/" ,method = RequestMethod.PATCH,produces="application/json;charset=UTF-8")
-	public String cancelOrder(@PathVariable("fid")String fid){
+	@RequestMapping(value = "/{fid}" ,method = RequestMethod.PUT,produces="application/json;charset=UTF-8")
+	public Map<String,Object> cancelOrder(@PathVariable("fid")String fid){
 
 		if( fid == null || "".equals(fid)){
-			throw new RuntimeException(Map_Msg.PARAM_IS_INVALID);
+			return productService.errorRespMap(respMap ,Map_Msg.PARAM_IS_INVALID );
 		}
 		Forder forder = forderService.getOrder(fid);//获得该订单
 
 		if(forder == null){
-			throw new RuntimeException(Map_Msg.WITHOUT_THIS_ORDER);
+			return productService.errorRespMap(respMap ,Map_Msg.PARAM_IS_INVALID );
 		}
 		int inventory = 0;//库存
 		int number = 0;//订单中单件商品数量
@@ -118,6 +119,6 @@ public class ForderAction extends BaseAction<Forder> {
 			protypeService.update(protype);//更新
 			forderService.cancelOrder(fid);//设置订单状态为交易关闭
 		}
-		return RestResultGenerator.genResult(Map_Msg.HTTP_OK ,Map_Msg.DELETE_SUCCESS).toString();
+		return productService.successRespMap(respMap , Map_Msg.DELETE_SUCCESS , "");
 	}
 }

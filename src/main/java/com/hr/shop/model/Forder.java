@@ -3,6 +3,8 @@ package com.hr.shop.model;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.hr.shop.jsonView.View;
 import com.hr.shop.validatorInterface.ValidInterface;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -17,6 +19,8 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "forder")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@Cacheable(value = true)
 public class Forder implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -97,6 +101,7 @@ public class Forder implements java.io.Serializable {
 	@ManyToOne()
 	@JoinColumn(name="sid")
 	@JsonView(View.summary.class)
+	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 	private Status status;
 
 	/**
@@ -105,6 +110,7 @@ public class Forder implements java.io.Serializable {
 	@OneToMany(targetEntity=Sorder.class, cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "fid")
 	@JsonView(View.summary.class)
+	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 	private Set<Sorder> sorderSet;
 
 	/**

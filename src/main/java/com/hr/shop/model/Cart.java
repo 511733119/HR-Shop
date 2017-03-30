@@ -3,6 +3,8 @@ package com.hr.shop.model;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.hr.shop.jsonView.View;
 import com.hr.shop.validatorInterface.ValidInterface;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -14,6 +16,8 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "cart")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@Cacheable(value = true)
 public class Cart implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;

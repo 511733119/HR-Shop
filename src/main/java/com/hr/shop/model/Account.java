@@ -22,7 +22,6 @@ public class Account implements java.io.Serializable {
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonView(View.view.class)
 	private Integer id;
 
 	/**

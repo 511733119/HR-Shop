@@ -1,7 +1,11 @@
 package com.hr.shop.model;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.hr.shop.jsonView.View;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
-import java.sql.Timestamp;
 
 /**
  * @author hjc
@@ -9,6 +13,7 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "status")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Cacheable(value = true)
 public class Status implements java.io.Serializable {
 
@@ -16,11 +21,13 @@ public class Status implements java.io.Serializable {
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(View.summary.class)
 	private Integer id;
 	/**
 	 * 订单状态
 	 */
 	@Column(name = "status", length =10 )
+	@JsonView(View.summary.class)
 	private String status;
 
 	// Constructors

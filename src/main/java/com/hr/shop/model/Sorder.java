@@ -3,6 +3,8 @@ package com.hr.shop.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.hr.shop.jsonView.View;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -14,6 +16,7 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "sorder")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Cacheable(value = true)
 public class Sorder implements java.io.Serializable {
 

@@ -27,11 +27,12 @@ public class ForderDaoImpl extends BaseDaoImpl<Forder> implements ForderDao {
 
 		int fromIndex = pageSize * (pageNum-1);
 
-		String hql = "FROM Forder f JOIN FETCH f.sorderSet st JOIN FETCH st.protype JOIN FETCH f.status JOIN FETCH f.user WHERE f.user.id=:uid ORDER BY f.update_date desc";
+		String hql = "FROM Forder f JOIN FETCH f.sorderSet st JOIN FETCH st.protype pt JOIN FETCH pt.product p JOIN FETCH p.category JOIN FETCH p.protypeSet JOIN FETCH f.status JOIN FETCH f.user WHERE f.user.id=:uid ORDER BY f.update_date desc";
 		return getSession().createQuery(hql)
 				.setInteger("uid",uid)
 				.setFirstResult(fromIndex)
 				.setMaxResults(pageSize)
+				.setCacheable(true)
 				.list();
 	}
 

@@ -39,7 +39,7 @@ public class TokenInterceptor implements HandlerInterceptor {
         }else{
             //token 过期
             Map<String, Object> map = new HashMap<String, Object>();
-            map.put("result", Map_Msg.ERROR);
+            map.put("status", Map_Msg.ERROR);
             map.put("msg", Map_Msg.LOGIN_IS_EXPIRE);
             Gson gson = new Gson();
             String json = gson.toJson(map);

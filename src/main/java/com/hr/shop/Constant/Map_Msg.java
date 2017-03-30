@@ -26,12 +26,12 @@ public class Map_Msg {
     public static final String PARAM_IS_INVALID ="传入参数非法";
     public static final String THE_NAME_IS_EXIST ="该用户名已存在";
 
-    public static final String HTTP_OK ="200 OK";
-    public static final String HTTP_CREATE ="201 Created";
-    public static final String HTTP_NOT_MODIFIED ="304 Not Modified";
-    public static final String HTTP_BAD_REQUEST ="400 Bad Request";
-    public static final String HTTP_UNAUTHORIZED ="401 Unauthorized";
-    public static final String HTTP_FORBIDDEN ="403 Forbidden";
-    public static final String HTTP_NOT_FOUND ="404 Not Found";
-    public static final String HTTP_INTERNAL_SERVER_ERROR ="500 Internal Server Error";
+//    public static final String HTTP_OK ="200 OK";
+//    public static final String HTTP_CREATE ="201 Created";
+//    public static final String HTTP_NOT_MODIFIED ="304 Not Modified";
+//    public static final String HTTP_BAD_REQUEST ="400 Bad Request";
+//    public static final String HTTP_UNAUTHORIZED ="401 Unauthorized";
+//    public static final String HTTP_FORBIDDEN ="403 Forbidden";
+//    public static final String HTTP_NOT_FOUND ="404 Not Found";
+//    public static final String HTTP_INTERNAL_SERVER_ERROR ="500 Internal Server Error";
 }

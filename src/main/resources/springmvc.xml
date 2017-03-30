@@ -28,9 +28,9 @@
 		<!-- 配置登陆拦截器 -->
 		<mvc:interceptor>
 			<mvc:mapping path="/api/forders/*"/>
-			<mvc:mapping path="/api/carts/user/*"/>
+			<mvc:mapping path="/api/carts/user"/>
 			<mvc:mapping path="/api/carts/buy"/>
-			<mvc:mapping path="/api/protypes/carts"/>
+			<mvc:mapping path="/api/protypes/cart/add"/>
 			<bean class="com.hr.shop.Interceptor.TokenInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>

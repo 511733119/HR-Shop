@@ -1,5 +1,6 @@
 package com.hr.shop.serviceImpl;
 
+import com.hr.shop.Constant.Map_Msg;
 import com.hr.shop.dao.*;
 import com.hr.shop.service.BaseService;
 import org.springframework.context.annotation.Lazy;
@@ -85,13 +86,24 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 	}
 
 	@Override
-	public Map<String,Object> getDataMap( Map<String,Object> dataMap ,String status, Object object){
-		if(dataMap == null){
-			dataMap =  new HashMap<String, Object>();
+	public Map<String, Object> successRespMap(Map<String,Object> map , String message , Object data){
+		if (map == null){
+			map = new HashMap<String, Object>();
 		}
-		dataMap.put("status", status);
-		dataMap.put("msg", object);
-		return dataMap;
+		map.put("error_code" , "0");
+		map.put("message" , message);
+		map.put("data", data);
+		return map;
 	}
 
+	@Override
+	public Map<String, Object> errorRespMap(Map<String,Object> map , String message){
+		if (map == null){
+			map = new HashMap<String, Object>();
+		}
+		map.put("error_code" , "-1");
+		map.put("message" , message);
+		map.put("data", "");
+		return map;
+	}
 }

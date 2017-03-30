@@ -65,6 +65,7 @@ public class ProductDaoImpl extends BaseDaoImpl<Product> implements ProductDao {
 						.setInteger("cid", id)
 						.setFirstResult(fromIndex)
 						.setMaxResults(pageSize)
+						.setCacheable(true)
 						.list();
 	}
 
@@ -89,12 +90,17 @@ public class ProductDaoImpl extends BaseDaoImpl<Product> implements ProductDao {
 				.setInteger("pid", pid)
 				.setFirstResult(0)
 				.setMaxResults(1)
+				.setCacheable(true)
 				.list();
 	}
 
 	@Override
 	public List<Product> getSearchList() {
 		String hql = "SELECT p.name FROM Product p WHERE p.commend=true AND p.open=true ORDER BY p.sales desc ";
-		return getSession().createQuery(hql).setFirstResult(0).setMaxResults(10).list();
+		return getSession().createQuery(hql)
+				.setFirstResult(0)
+				.setMaxResults(10)
+				.setCacheable(true)
+				.list();
 	}
 }

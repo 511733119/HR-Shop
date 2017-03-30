@@ -29,7 +29,7 @@ public class DefaultExceptionHandler implements HandlerExceptionResolver {
         response.setCharacterEncoding("UTF-8"); //避免乱码
         response.setHeader("Cache-Control", "no-cache, must-revalidate");
         try {
-            response.getWriter().write("{\"status\":"+ Map_Msg.HTTP_BAD_REQUEST + ",\"msg\":\"" + ex.getMessage() + "\"}");
+            response.getWriter().write("{\"status\":"+ Map_Msg.PARAM_IS_INVALID + ",\"msg\":\"" + ex.getMessage() + "\"}");
         } catch (IOException e) {
             log.error("与客户端通讯异常:"+ e.getMessage(), e);
         }

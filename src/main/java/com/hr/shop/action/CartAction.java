@@ -5,13 +5,15 @@ import com.hr.shop.Constant.Map_Msg;
 import com.hr.shop.jsonView.View;
 import com.hr.shop.model.Cart;
 import com.hr.shop.model.User;
-import com.hr.shop.response.RestResultGenerator;
 import com.hr.shop.validatorInterface.ValidInterface;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import java.util.Map;
 
 /**
  * @author hjc
@@ -25,11 +27,11 @@ public class CartAction extends BaseAction<Cart> {
 	/**
 	 * 修改购物车商品数量时触发
 	 */
-	@RequestMapping(value = "/", method = RequestMethod.PATCH ,produces="application/json;charset=UTF-8")
-	public String updateCartNumber(@RequestParam("id") int id, @RequestParam("number") int number  , @Validated({ValidInterface.class})Cart c , BindingResult errors){
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT ,produces="application/json;charset=UTF-8")
+	public Map<String,Object> updateCartNumber(@PathVariable("id") int id, int number  , @Validated({ValidInterface.class})Cart c , BindingResult errors){
 
 		if(errors.hasErrors()){
-			throw new RuntimeException(Map_Msg.PARAM_IS_INVALID);
+			return productService.errorRespMap(respMap ,Map_Msg.PARAM_IS_INVALID );
 		}
 		//库存
 		int inventory = 0;
@@ -40,7 +42,7 @@ public class CartAction extends BaseAction<Cart> {
 		}
 		//如果数量大于库存,则输出错误
 		if ( number > inventory){
-			throw new RuntimeException(Map_Msg.UPDATE_NUMBER_ERROR);
+			return productService.errorRespMap(respMap ,Map_Msg.PARAM_IS_INVALID );
 		}
 //		cart.setNumber(number);
 //
@@ -48,23 +50,21 @@ public class CartAction extends BaseAction<Cart> {
 		cartService.updateCartNumber(id,number);//执行更新操作
 
 		logger.debug("Ending updateCartNumber()");
-		return RestResultGenerator.genResult(Map_Msg.HTTP_OK,
-				Map_Msg.UPDATE_SUCCESS).toString();
-
+		return productService.successRespMap(respMap , Map_Msg.UPDATE_SUCCESS , "");
 	}
 
 	/**
 	 * 删除购物车项
 	 */
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE,produces="application/json;charset=UTF-8" )
-	public String deleteCart(@PathVariable("id") int id , @Validated({ValidInterface.class})Cart cart , BindingResult errors) {
+	public Map<String,Object> deleteCart(@PathVariable("id") int id , @Validated({ValidInterface.class})Cart cart , BindingResult errors) {
 		logger.debug("Entering deleteCart() : id:{}",id);
 		if(errors.hasErrors()){
-			throw new RuntimeException(Map_Msg.PARAM_IS_INVALID);
+			return productService.errorRespMap(respMap ,Map_Msg.PARAM_IS_INVALID );
 		}
 		cartService.delete(id);//删除该购物车项
 		logger.debug("Ending deleteCart()");
-		return  RestResultGenerator.genResult(Map_Msg.HTTP_OK, Map_Msg.DELETE_SUCCESS).toString();
+		return productService.successRespMap(respMap , Map_Msg.DELETE_SUCCESS , "");
 	}
 
 	/**
@@ -72,15 +72,15 @@ public class CartAction extends BaseAction<Cart> {
 	 */
 	@RequestMapping(value = "/user", method = RequestMethod.GET,produces="application/json;charset=UTF-8" )
 	@JsonView(View.son.class)
-	public String getCart(@RequestParam("id")int id , @Validated({ValidInterface.class}) User user , BindingResult errors) {
+	public Map<String,Object> getCart(int id , @Validated({ValidInterface.class}) User user , BindingResult errors) {
 		logger.debug("Entering getCart() :");
 		if (errors.hasErrors()){
-			throw new RuntimeException(Map_Msg.PARAM_IS_INVALID);
+			return productService.errorRespMap(respMap ,Map_Msg.PARAM_IS_INVALID );
 		}
 		//获取购物车数据
-		List<Cart> list = cartService.getCart(id);
+		jsonList = cartService.getCart(id);
 		logger.debug("Ending getCart()");
-		return RestResultGenerator.genResult(Map_Msg.HTTP_OK , list).toString();
+		return productService.successRespMap(respMap , Map_Msg.SUCCESS , jsonList);
 	}
 
 //	/**
@@ -104,27 +104,27 @@ public class CartAction extends BaseAction<Cart> {
 	 * @return
 	 */
 	@RequestMapping(value = "/buy", method = RequestMethod.GET,produces="application/json;charset=UTF-8" )
-	public String placeOrderImmediately(@RequestParam("ptids")String ptids , @RequestParam("numbers") String numbers) {
+	public Map<String,Object> placeOrderImmediately(String ptids , String numbers) {
 
 		if( (ptids == null || "".equals(ptids))
 				|| (numbers == null || "".equals(numbers))) {
-			throw new RuntimeException(Map_Msg.PARAM_IS_INVALID);
+			return productService.errorRespMap(respMap ,Map_Msg.PARAM_IS_INVALID );
 		}
 
 		String[] split_ids = ptids.split(",");//分割字符串，取出所要下单的商品细分种类id
 		String[] split_numbers = numbers.split(",");//分割字符串，取出所要下单的商品细分种类各自对应数量
 
 		if(split_ids == null || split_numbers == null){
-			throw new RuntimeException(Map_Msg.PARAM_IS_INVALID);
+			return productService.errorRespMap(respMap ,Map_Msg.PARAM_IS_INVALID );
 		}
 
 		int count = cartService.checkInventory(split_ids, split_numbers);//库存检查
 		if(count != 0){
 			//如果某件商品库存不足，则不能下单
-			throw new RuntimeException(Map_Msg.PLACE_ORDER_ERROR);
+			return productService.errorRespMap(respMap ,Map_Msg.PLACE_ORDER_ERROR );
 		}
-		//库存足够，成功下单
-		return RestResultGenerator.genResult(Map_Msg.HTTP_OK,Map_Msg.SUCCESS).toString();
+		//库存足够，可以下单
+		return productService.successRespMap(respMap , Map_Msg.SUCCESS , "");
 	}
 
 }

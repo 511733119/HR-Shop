@@ -1,16 +1,15 @@
 package com.hr.shop.action;
 
-import com.hr.shop.response.ResponseResult;
-import com.hr.shop.response.UserResponseResult;
 import com.hr.shop.service.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author hjc
@@ -22,13 +21,13 @@ public class BaseAction<T>{
 
 	protected Logger logger = LoggerFactory.getLogger(BaseAction.class);
 
-	protected List<T> jsonList=null;
+	protected List<T> jsonList;
 
 	protected String result;
 
-	protected ResponseResult respRes ;
+	protected ResponseEntity<?> entity ;
 
-	protected UserResponseResult urespRes;
+	protected Map<String,Object> respMap;
 
 	@Resource
 	protected CategoryService categoryService;
@@ -47,22 +46,6 @@ public class BaseAction<T>{
 	@Resource
 	protected UserService userService;
 
-	public void setRespRes(ResponseResult respRes) {
-		this.respRes = respRes;
-	}
-
-	public ResponseResult getRespRes() {
-		return respRes;
-	}
-
-	public void setUrespRes(UserResponseResult urespRes) {
-		this.urespRes = urespRes;
-	}
-
-	public UserResponseResult getUrespRes() {
-		return urespRes;
-	}
-
 	public void setJsonList(List<T> jsonList) {
 		this.jsonList = jsonList;
 	}
@@ -79,6 +62,22 @@ public class BaseAction<T>{
         this.result = result;
     }
 
+	public void setEntity(ResponseEntity<?> entity) {
+		this.entity = entity;
+	}
+
+	public ResponseEntity<?> getEntity() {
+		return entity;
+	}
+
+	public void setRespMap(Map<String, Object> respMap) {
+		this.respMap = respMap;
+	}
+
+	public Map<String, Object> getRespMap() {
+		return respMap;
+	}
+
 	/**
 	 * 请求异常
 	 * @return
@@ -86,13 +85,11 @@ public class BaseAction<T>{
 	 * String
 	 */
 	@RequestMapping(value = "/error_404", produces = "text/html;charset=UTF-8")
-	@ResponseBody
 	public String error_404() throws Exception {
 		return "{\"status\":\"404\",\"msg\":\"找不到页面\"}";
 	}
 
 	@RequestMapping(value = "/error_400", produces = "text/html;charset=UTF-8")
-	@ResponseBody
 	public String error_400() throws Exception {
 		return "{\"status\":\"400\",\"msg\":\"请求参数非法\"}";
 	}

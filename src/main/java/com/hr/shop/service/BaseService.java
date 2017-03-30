@@ -17,12 +17,20 @@ public interface BaseService<T> {
 	public List<T>  query();
 
 	/**
-	 * 请求返回Map
-	 * @param dataMap
-	 * @param status 状态
-	 * @param object 消息内容
+	 * 统一返回成功格式
+	 * @param map
+	 * @param message
+	 * @param data
 	 * @return
 	 */
-	public Map<String,Object> getDataMap(Map<String,Object> dataMap , String status, Object object);
+	public Map<String,Object> successRespMap (Map<String,Object> map , String message , Object data);
+
+	/**
+	 * 统一返回参数错误格式
+	 * @param map
+	 * @param message
+	 * @return
+	 */
+	public Map<String, Object> errorRespMap(Map<String,Object> map , String message);
 
 }
