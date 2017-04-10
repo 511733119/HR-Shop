@@ -1,18 +1,29 @@
 package com.hr.shop.serviceImpl;
 
-import com.hr.shop.Constant.Map_Msg;
-import com.hr.shop.dao.*;
-import com.hr.shop.service.BaseService;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.stereotype.Service;
-
-import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
+
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Service;
+
+import com.hr.shop.dao.AccountDao;
+import com.hr.shop.dao.Append_CommentDao;
+import com.hr.shop.dao.BaseDao;
+import com.hr.shop.dao.CartDao;
+import com.hr.shop.dao.CategoryDao;
+import com.hr.shop.dao.CommentDao;
+import com.hr.shop.dao.ForderDao;
+import com.hr.shop.dao.ProductDao;
+import com.hr.shop.dao.ProtypeDao;
+import com.hr.shop.dao.SorderDao;
+import com.hr.shop.dao.UserDao;
+import com.hr.shop.service.BaseService;
 
 @SuppressWarnings("unchecked")
 @Service("baseService")
@@ -58,6 +69,10 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 	protected CartDao cartDao;
 	@Resource
 	protected ProtypeDao protypeDao;
+	@Resource
+	protected CommentDao commentDao;
+	@Resource
+	protected Append_CommentDao append_CommentDao;
 	
 	@Override
 	public void save(T t) {

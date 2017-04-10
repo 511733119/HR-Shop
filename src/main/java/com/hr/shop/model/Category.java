@@ -5,7 +5,9 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+
 import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * @author hjc

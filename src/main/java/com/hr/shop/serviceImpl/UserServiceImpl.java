@@ -133,4 +133,8 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
 	public void updatePassword(int id, String password) {
 		userDao.updatePassword(id , password);
 	}
+
+	public void updatAvatar(int id, String avatar) {
+		userDao.updatAvatar(id,avatar);
+	}
 }

@@ -8,7 +8,9 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+
 import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * @author hjc

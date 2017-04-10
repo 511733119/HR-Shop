@@ -1,13 +1,14 @@
 package com.hr.shop.action;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.hr.shop.Constant.Map_Msg;
+import com.hr.shop.jsonView.View;
 import com.hr.shop.model.User;
 import com.hr.shop.validatorInterface.ValidInterface;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import redis.clients.jedis.Jedis;
 
 import java.util.Map;
@@ -168,10 +169,10 @@ public class UserAction extends BaseAction<User> {
 		String sendCode = redis.get(phone);//获取存储的验证码
 		logger.info("服务器验证码是 {},手机号为:{}的用户发送的验证码为 {}",sendCode,phone,code);
 		if (sendCode.equals(code)) {
-			productService.successRespMap(respMap , Map_Msg.CODE_IS_RIGHT , "");
+			respMap = productService.successRespMap(respMap , Map_Msg.CODE_IS_RIGHT , "");
 			if(userService.getUser(phone) == null){
 				//返回该用户是新用户json标志
-				return productService.successRespMap(respMap , Map_Msg.NEW_USER , "");
+				respMap = productService.successRespMap(respMap , Map_Msg.NEW_USER , "");
 			}
 			logger.info("验证码正确");
 		}else {
@@ -186,6 +187,7 @@ public class UserAction extends BaseAction<User> {
 	 * 用户输入正确的验证码后，填入密码进行注册
 	 */
 	@RequestMapping(value = "/register" ,method = RequestMethod.POST,produces="application/json;charset=UTF-8")
+	@JsonView({View.exceptPwd.class})
 	public Map<String, Object> register( String phone , String password , @Validated({ValidInterface.class}) User u, BindingResult errors){
 		logger.debug("Entering register()");
 		//如果输入不合法
@@ -220,29 +222,32 @@ public class UserAction extends BaseAction<User> {
 		//返回token，id，phone，username
 		return productService.successRespMap(respMap , Map_Msg.USER_REGISTER_SUCCESS , user);
 	}
-//
-//	/**
-//	 * 用户上传头像
-//	 * @return
-//	 */
-//	public String updateHeadImg(){
-//
-//		int id = model.getId();	//用户id
-//		if(request.get("base64_img") == null || id == 0) {
-//			return ERROR;
-//		}
-//		String base64_img = String.valueOf(request.get("base64_img"));//获得base64加密后字符串
-//		String decoder_img = FileUploadUtil.decoderBase64(base64_img);//base64解码
-//		byte[] bytes = decoder_img.getBytes();
-//		String filePosition = FileUploadUtil.getFile(bytes,id + "_" + System.currentTimeMillis()+".jpg");//获得文件名
-//
-//		User user = userService.get(id);
-//		user.setAvatar(filePosition);
-//		userService.update(user);//更新头像
-//
-//		dataMap = userService.getDataMap(dataMap,Map_Msg.SUCCESS,Map_Msg.UPDATE_SUCCESS);
-//		return SUCCESS;
-//	}
+
+	/**
+	 * 用户上传头像
+	 * @param id 用户id
+	 * @return
+	 */
+	@RequestMapping(value = "/upload/{id}" , method = RequestMethod.POST , produces = "application/json;charset=UTF-8")
+	public Map<String, Object> updateHeadImg( @RequestParam("file") MultipartFile[] file , @PathVariable("id") int id) {
+		logger.debug("Entering updateHeadImg()");
+		//判断file数组不能为空并且长度大于0
+		if(file != null && file.length > 0){
+			//循环获取file数组中得文件
+			for(int i = 0;i < file.length;i++){
+				MultipartFile f = file[i];
+				//保存文件
+				fileUploadUtil.saveHeadFile(f,id);
+			}
+			logger.debug("Ending updateHeadImg()");
+			//上传成功
+			return productService.successRespMap(respMap , Map_Msg.SUCCESS ,"");
+		}
+		logger.debug("Ending updateHeadImg()");
+		//参数为空则返回错误
+		return productService.errorRespMap(respMap, Map_Msg.THE_PIC_IS_NULL);
+
+	}
 
 	/**
 	 * 用户改变用户名

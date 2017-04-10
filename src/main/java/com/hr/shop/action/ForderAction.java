@@ -24,6 +24,7 @@ public class ForderAction extends BaseAction<Forder> {
 	 * 订单与订单项级联入库
 	 *  期望格式	String json = "{'name':'海俊','address':'清风阁','remark':'加两双筷子','phone':'123124325235','sorderSet':[{'id':1,'number':43,'protype':{'id':4,'name':'ddd','pic':'4.jpg','inventory':100,'product':{'id':2,'name':'bbb','price':23}}},{'id':6,'number':3,'protype':{'id':4,'name':'ddd','pic':'4.jpg','inventory':50,'product':{'id':2,'name':'bbb','price':23}}}]}";
 	 */
+	@SuppressWarnings("unused")
 	@RequestMapping(value = "/user" ,method = RequestMethod.POST,produces="application/json;charset=UTF-8")
 	public Map<String,Object> saveOrder(int id, @RequestBody String order_json, @Validated({ValidInterface.class}) User u , BindingResult errors){
 		logger.debug("Entering saveOrder() :");

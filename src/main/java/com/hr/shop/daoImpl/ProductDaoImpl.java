@@ -1,12 +1,9 @@
 package com.hr.shop.daoImpl;
 
 import com.hr.shop.dao.ProductDao;
-import com.hr.shop.model.Pager;
 import com.hr.shop.model.Product;
-import com.hr.shop.model.Protype;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
 /**
  * @author hjc

@@ -1,18 +1,23 @@
 package com.hr.shop.model;
 
 
-import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.hr.shop.jsonView.View;
 
-import java.security.Timestamp;
-import java.util.Date;
+import javax.persistence.*;
+import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
- * @author hjc
- * 管理员类
+ * 追加评论存储的图片实体类
+ * HR-Shop
+ * Created by hjc
+ * User: hjc
+ * Date: 2017/3/30 15:29
  */
 @Entity
-@Table(name = "account")
-public class Account implements java.io.Serializable {
+@Table(name = "append_comment_pic")
+public class Append_Comment_Pic implements java.io.Serializable {
 
 	// Fields
 	private static final long serialVersionUID = 1L;
@@ -20,19 +25,19 @@ public class Account implements java.io.Serializable {
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView({View.summary.class})
 	private Integer id;
 
 	/**
-	 * 管理员用户名
+	 * 图片url
 	 */
-	@Column(name = "accountname", length = 20)
-	private String accountname;
+	@Column(name = "pic", length = 100)
+	@JsonView({View.summary.class})
+	private String pic;
 
-	/**
-	 * 管理员密码
-	 */
-	@Column(name = "accountpwd", length = 20)
-	private String accountpwd;
+	@ManyToOne()
+	@JoinColumn(name="append_comment_id")
+	private Comment append_comment;
 
 	/**
 	 * 创建日期
@@ -48,13 +53,12 @@ public class Account implements java.io.Serializable {
 	// Constructors
 
 	/** default constructor */
-	public Account() {
+	public Append_Comment_Pic() {
 	}
 
 	/** full constructor */
-	public Account(String accountname, String accountpwd) {
-		this.accountname = accountname;
-		this.accountpwd = accountpwd;
+	public Append_Comment_Pic(String pic) {
+		this.pic = pic;
 	}
 
 	// Property accessors
@@ -66,20 +70,20 @@ public class Account implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public String getAccountname() {
-		return accountname;
+	public String getPic() {
+		return pic;
 	}
 
-	public void setAccountname(String accountname) {
-		this.accountname = accountname;
+	public void setPic(String pic) {
+		this.pic = pic;
 	}
 
-	public String getAccountpwd() {
-		return accountpwd;
+	public void setAppend_comment(Comment append_comment) {
+		this.append_comment = append_comment;
 	}
 
-	public void setAccountpwd(String accountpwd) {
-		this.accountpwd = accountpwd;
+	public Comment getAppend_comment() {
+		return append_comment;
 	}
 
 	public void setCreate_date(Timestamp create_date) {
@@ -98,8 +102,4 @@ public class Account implements java.io.Serializable {
 		return update_date;
 	}
 
-	@Override
-	public String toString() {
-		return super.toString();
-	}
 }

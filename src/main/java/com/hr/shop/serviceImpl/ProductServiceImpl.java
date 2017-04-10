@@ -1,6 +1,5 @@
 package com.hr.shop.serviceImpl;
 
-import com.hr.shop.model.Pager;
 import com.hr.shop.model.Product;
 import com.hr.shop.service.ProductService;
 import org.springframework.stereotype.Service;

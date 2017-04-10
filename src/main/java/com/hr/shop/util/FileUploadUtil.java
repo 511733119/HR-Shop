@@ -1,78 +1,30 @@
 package com.hr.shop.util;
 
+import com.hr.shop.model.User;
+import com.hr.shop.service.UserService;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 import sun.misc.BASE64Decoder;
 
-import java.io.BufferedOutputStream;
+import javax.annotation.Resource;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.UUID;
+
 /**
  * @author hjc
  * 文件上传的工具类
  */
+@Component
 public class FileUploadUtil{
+	
+	@Resource
+	UserService userService;
 
-	@Value("#{prop.filePath}")
-	private static String filePath ;
-
-//	//通过文件名获取扩展名
-//	private static String getFileExt(String fileName){
-//		return FilenameUtils.getExtension(fileName);
-//	}
-//
-//	//生成UUID随机数，作为新的文件名
-//	private static String newFileName(String fileName){
-//		String ext = getFileExt(fileName);
-//		return UUID.randomUUID().toString()+"."+ext;
-//	}
-//
-//	//实现文件上传的功能，返回上传后新的文件名
-//	public static String uploadFile(FileImage fileImage){
-//		//获取新唯一文件名
-//		String pic = newFileName(fileImage.getFilename());
-//		try {
-//			FileUtil.copyFile(fileImage.getFile(), new File(filePath,pic));
-//			return pic;
-//		} catch (Exception e) {
-//			throw new RuntimeException("上传图片失败");
-//		}finally{
-//			fileImage.getFile().delete();
-//		}
-//	}
-
-	/**
-	 * 将byte数组转化为file文件
-	 * @param bfile
-	 * @param fileName
-	 */
-	public static String getFile(byte[] bfile, String fileName) {
-		BufferedOutputStream bos = null;
-		File file = null;
-		System.out.println(bfile.length);
-		try {
-			File dir = new File("C:\\img");
-			if (!dir.exists() && dir.isDirectory()) {// 判断文件目录是否存在
-				dir.mkdirs();
-			}
-			file = new File("C:" + "\\img\\" + fileName);
-			bos = new BufferedOutputStream(new FileOutputStream(file));
-			bos.write(bfile);
-			bos.flush();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			if (bos != null) {
-				try {
-					bos.close();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
-			}
-		}
-		return fileName;
-	}
-
+	@Resource(name="config")
+	private Config config;
+	
 	/**
 	 *  JDK自带Base64解密
 	 * */
@@ -86,5 +38,66 @@ public class FileUploadUtil{
 			System.out.println(e.getMessage());
 		}
 		return str;
+	}
+
+	/**
+	 * 保存文件,返回文件名
+	 * @param file
+	 * @param filePath
+	 * @return
+	 */
+	public String saveFiles(MultipartFile file ,String filePath) {
+		// 判断文件是否为空
+		if (!file.isEmpty()) {
+			try {
+				//获取上传文件的名字
+				String filename = file.getOriginalFilename();
+				//获取上传文件的类型
+				String type = filename.substring(filename.lastIndexOf("."), filename.length());
+				filename = UUID.randomUUID().toString()+ type;
+				File f = new File(filePath+ "\\" +filename);
+				if(!f.exists()){
+					f.mkdirs();
+				}
+				// 转存文件
+				file.transferTo(f);
+				return filename;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return "";
+	}
+	
+	/**
+	 * 保存评论时图片
+	 * @param file
+	 * @return
+	 */
+	public String saveCommFiles(MultipartFile file) {
+		return saveFiles(file , config.getCommentFilePath());
+	}
+	
+	/**
+	 * 保存用户头像
+	 * @param file
+	 * @param id 用户id
+	 * @return
+	 */
+	public boolean saveHeadFile(MultipartFile file , int id) {
+		String filename =saveFiles(file , config.getFilePath());
+		saveToDatabase(filename,id);
+		return true;
+	}
+
+	/**
+	 * 保存头像地址到数据库
+	 * @param fileName
+	 * @param id
+	 */
+	private void saveToDatabase(String fileName , int id){
+		User user = userService.get(id);
+		user.setAvatar(fileName);
+		userService.updatAvatar(id, fileName);
 	}
 }

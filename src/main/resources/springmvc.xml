@@ -2,6 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
+
     xmlns:mvc="http://www.springframework.org/schema/mvc"
    xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
@@ -69,4 +70,21 @@
 	</bean>
 
 	<bean id="exceptionHandler" class="com.hr.shop.Exception.DefaultExceptionHandler" />
+
+	<!-- 上传文件的设置 ，maxUploadSize=-1，表示无穷大。uploadTempDir为上传的临时目录 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="utf-8" />
+		<property name="maxUploadSize" value="20971520" />
+		<property name="maxInMemorySize" value="40960" />
+		<property name="uploadTempDir" value="fileUpload/img"/>
+	</bean>
+
+	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<!-- 遇到MaxUploadSizeExceededException异常时，自动跳转到服务器错误页面 -->
+				<prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">/error_500</prop>
+			</props>
+		</property>
+	</bean>
 </beans>

@@ -1,6 +1,8 @@
 package com.hr.shop.action;
 
+import com.hr.shop.model.Comment;
 import com.hr.shop.service.*;
+import com.hr.shop.util.FileUploadUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -8,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -22,6 +26,8 @@ public class BaseAction<T>{
 	protected Logger logger = LoggerFactory.getLogger(BaseAction.class);
 
 	protected List<T> jsonList;
+
+	protected List<Comment> app_com_jsonList;
 
 	protected String result;
 
@@ -45,6 +51,20 @@ public class BaseAction<T>{
 	protected CartService cartService;
 	@Resource
 	protected UserService userService;
+	@Resource
+	protected CommentService commentService;
+	@Resource
+	protected Append_CommentService append_CommentService;
+	@Resource
+	protected FileUploadUtil fileUploadUtil;
+
+	public void setApp_com_jsonList(List<Comment> app_com_jsonList) {
+		this.app_com_jsonList = app_com_jsonList;
+	}
+
+	public List<Comment> getApp_com_jsonList() {
+		return app_com_jsonList;
+	}
 
 	public void setJsonList(List<T> jsonList) {
 		this.jsonList = jsonList;

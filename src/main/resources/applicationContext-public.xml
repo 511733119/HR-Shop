@@ -59,15 +59,17 @@
 			<tx:method name="update*" propagation="REQUIRED"/>
 			<tx:method name="delete*" propagation="REQUIRED"/>
 			<tx:method name="remove*" propagation="REQUIRED"/>
-			<tx:method name="*" propagation="SUPPORTS"/>
+			<tx:method name="*" propagation="REQUIRED" read-only="true"/>
 		</tx:attributes>
 	</tx:advice>
 
 	<aop:config>
 		<!-- 配置哪些包的类要切入事务 -->
-		<aop:pointcut expression="execution(* com.hr.shop.serviceImpl.*.*(..))" id="pointcut"/>
+		<aop:pointcut expression="execution(* com.hr.shop.*.*.*(..))" id="pointcut"/>
 		<!-- 通知+切面表达式，才是完整的切入路径 -->
 		<aop:advisor advice-ref="advice" pointcut-ref="pointcut"/>
 
 	</aop:config>
+
+
 </beans>

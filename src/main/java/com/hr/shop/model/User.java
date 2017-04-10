@@ -1,12 +1,16 @@
 package com.hr.shop.model;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.hr.shop.jsonView.View;
 import com.hr.shop.validatorInterface.ValidInterface;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+
 import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * @author hjc
@@ -22,6 +26,7 @@ public class User implements java.io.Serializable {
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView({View.summary.class})
 	private Integer id;
 
 	/**
@@ -30,6 +35,7 @@ public class User implements java.io.Serializable {
 	@NotNull
 	@Pattern(regexp = "^[\\u4e00-\\u9fa5]{3,5}$|^[\\dA-Za-z_]{3,10}$",groups = {ValidInterface.class})//匹配3-5个汉字，或3-10个字节（中文，英文，数字及下划线(_)）
 	@Column(name = "username", length = 50)
+	@JsonView({View.summary.class})
 	private String username;
 
 	/**
@@ -38,39 +44,44 @@ public class User implements java.io.Serializable {
 	@NotNull
 	@Pattern(regexp = "^((13[0-9])|(15[^4,\\D])|(18[0-9]))\\d{8}$",groups = {ValidInterface.class})
 	@Column(name = "phone", length = 11 , unique = true)
+	@JsonView({View.commentExcept.class})
 	private String phone;
 
 	/**
 	 * 用户密码
 	 */
-
 	@NotNull
 	@Pattern(regexp = "[\\u4e00-\\u9fa5_a-zA-Z0-9_]{6,32}",groups = {ValidInterface.class})//匹配6-32个字符，可包含中文，英文，数字及下划线(_)
 	@Column(name = "password", length = 50)
+	@JsonView({View.commentExcept.class })
 	private String password;
 
 	/**
 	 * 令牌
 	 */
 	@Column(name = "token", length = 100)
+	@JsonView({View.commentExcept.class, View.exceptPwd.class})
 	private String token;
 
 	/**
 	 * 头像
 	 */
 	@Column(name = "avatar", length = 80)
+	@JsonView({View.commentExcept.class, View.exceptPwd.class})
 	private String avatar;
 
 	/**
 	 * 创建日期
 	 */
 	@Column(name = "create_date", length = 19)
+	@JsonView({View.commentExcept.class})
 	private Timestamp create_date;
 
 	/**
 	 * 更新日期
 	 */
 	@Column(name = "update_date", length = 19)
+	@JsonView({View.commentExcept.class})
 	private Timestamp update_date;
 	// Constructors
 

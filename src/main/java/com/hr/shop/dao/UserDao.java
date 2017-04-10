@@ -44,4 +44,11 @@ public interface UserDao extends BaseDao<User> {
 	 * @param password
 	 */
 	public void updatePassword(int id, String password);
+
+	/**
+	 * 更新头像
+	 * @param id
+	 * @param avatar
+	 */
+	public void updatAvatar(int id, String avatar);
 }

@@ -1,13 +1,10 @@
 package com.hr.shop.daoImpl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
 import com.hr.shop.dao.CategoryDao;
 import com.hr.shop.model.Category;
-import com.hr.shop.model.Pager;
-import com.hr.shop.model.Product;
 
 /**
  * @author hjc

@@ -37,6 +37,10 @@
 		<mapping class="com.hr.shop.model.Cart" />
 		<mapping class="com.hr.shop.model.User" />
 		<mapping class="com.hr.shop.model.Protype" />
+		<mapping class="com.hr.shop.model.Comment" />
+		<mapping class="com.hr.shop.model.Comment_Pic" />
+		<mapping class="com.hr.shop.model.Append_Comment" />
+		<mapping class="com.hr.shop.model.Append_Comment_Pic" />
 	</session-factory>
 
 </hibernate-configuration>

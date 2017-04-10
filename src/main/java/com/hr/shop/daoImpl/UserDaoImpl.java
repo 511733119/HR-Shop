@@ -30,6 +30,12 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 	}
 
 	@Override
+	public void updatAvatar(int id, String avatar) {
+		String hql = "UPDATE User u SET u.avatar=:avatar WHERE u.id=:id";
+		getSession().createQuery(hql).setInteger("id",id).setString("avatar",avatar).executeUpdate();
+	}
+
+	@Override
 	public User login(User user) {
 		String usernameHql = "FROM User u WHERE u.username=:username AND u.password=:password";
 		String phoneHql = "FROM User u WHERE u.phone=:phone AND u.password=:password";

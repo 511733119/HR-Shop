@@ -12,6 +12,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Min;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Set;
 
 /**
@@ -107,6 +108,10 @@ public class Product implements java.io.Serializable {
 	public Product() {
 	}
 
+	public Product(int id){
+		this.id = id;
+	}
+	
 	/** minimal constructor */
 	public Product(Set<Protype> protypeSet) {
 		this.protypeSet = protypeSet;

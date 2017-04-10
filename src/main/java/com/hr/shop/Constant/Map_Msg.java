@@ -25,6 +25,7 @@ public class Map_Msg {
     public static final String PARAM_IS_NULL ="传入参数不能为空";
     public static final String PARAM_IS_INVALID ="传入参数非法";
     public static final String THE_NAME_IS_EXIST ="该用户名已存在";
+    public static final String THE_PIC_IS_NULL ="图片不能为空";
 
 //    public static final String HTTP_OK ="200 OK";
 //    public static final String HTTP_CREATE ="201 Created";
