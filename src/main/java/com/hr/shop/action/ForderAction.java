@@ -137,7 +137,11 @@ public class ForderAction extends BaseAction<Forder> {
 		return productService.successRespMap(respMap , Map_Msg.DELETE_SUCCESS , "");
 	}
 	
-	@RequestMapping(value = "/pay/{id}" ,method = RequestMethod.GET,produces="application/json;charset=UTF-8")
+	/**
+	 * 支付完成，查询订单状态查看是否支付成功，是则更新订单状态，否则返回支付失败信息
+	 *
+	 */
+	@RequestMapping(value = "/pay/{id}" ,method = RequestMethod.POST,produces="application/json;charset=UTF-8")
 	public Map<String, Object> getPay_Result(@PathVariable("id") String id , String fid){
 		
 		logger.debug("Entering getPay_Result()");

@@ -110,6 +110,9 @@ DELETE /api/forders/{fid}?id=1&token=token
 * 取消订单(订单id，用户id,token)  
 PUT /api/forders/{fid}?id=1&token=token  
 
+* 支付完成，查询订单状态查看是否支付成功，是则更新订单状态，否则返回支付失败信息(bmob订单id，自动生成的订单号)
+POST /api/forders/pay/{id}?fid=fid
+
 * 账号密码登录(返回token给客户端)(账号，密码)  
 POST /api/users/login?input=input&password=password
 
@@ -184,6 +187,16 @@ PUT /api/users/updateUsername?id=1&username=username
 
 * 用户修改密码(匹配6-32个字符，可包含中文，英文，数字及下划线(_))  
 PUT /api/users/updatePassoword?id=1&password=password
+
+* 获得商品的评论(商品id，页码)
+GET /api/comments/{pid}?pageNum=1
+
+* 对商品进行评论(商品id,用户id，星星数，评论文字，订单项id，文件上传file数组对象)
+POST /api/comments/comment?pid=pid&star=star&comment=comment&sid=sid&file=file
+
+* 保存追加评论(首次评论id，商品id，用户id，订单项id，文件上传file数组对象)
+POST /api/comments/append_comment?comment_id=comment_id&pid=pid&uid=uid&sid=sid&file=file
+
 
 **统一返回格式：error_code:0  message:"message" data:data}  
 error_code为0时表示请求成功，为-1时表示出现错误，此时data为空** 
