@@ -61,9 +61,7 @@ public class UserAction extends BaseAction<User> {
 			//存在，则成功登录
 			logger.info("userid:{} 成功登录 ",user.getId());
 			String token = userService.generateToken(input,user.getPassword());	/* 生成token */
-			user.setToken(token);
-			userService.update(user);//刷新token
-
+			userService.updateToken(token,user.getId());//刷新token
 			//返回成功登录相关信息
 			// 返回新的token
 			//返回用户id
@@ -93,8 +91,7 @@ public class UserAction extends BaseAction<User> {
 
 			logger.info("userid:{} 成功登录",user.getId());
 			String token = userService.generateToken(user.getPhone(),user.getPassword());	// 生成token
-			user.setToken(token);
-			userService.update(user);//刷新token
+			userService.updateToken(token, user.getId());//刷新token
 
 			//返回成功登录相关信息(token,id)
 			respMap =  productService.successRespMap(respMap , Map_Msg.USER_LOGIN_SUCCESS , user);

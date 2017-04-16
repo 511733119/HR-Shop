@@ -10,11 +10,17 @@ import java.util.List;
  * HR-Shop
  * Created by hjc
  * User: hjc
- * Date: 2017/3/31 20:30
+ * Timestamp: 2017/3/31 20:30
  */
 public interface Append_CommentDao extends BaseDao<Append_Comment> {
 	
-	public int getAppend_Comment(int pid, int uid);
+	/**
+	 * 获取某用户对某商品的追加评论id
+	 * @param pid
+	 * @param uid
+	 * @return
+	 */
+	public List<Append_Comment> getAppend_Comment(int pid, int uid);
 	
 }
 

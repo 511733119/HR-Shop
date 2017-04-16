@@ -2,12 +2,14 @@ package com.hr.shop.action;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.hr.shop.Constant.Map_Msg;
-import com.hr.shop.dto.Sorder_Comment;
+import com.hr.shop.dto.Comment_Page;
+import com.hr.shop.dto.Comment_dto;
 import com.hr.shop.jsonView.View;
 import com.hr.shop.model.Comment;
 import com.hr.shop.model.Sorder;
 
-import java.util.ArrayList;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,10 +36,10 @@ public class SorderAction extends BaseAction<Sorder> {
 		
 		Sorder sorder = sorderService.get(id);//获取该订单项对应的商品信息
 		
+		
 		jsonMap.put("sorder", sorder);
-		
-		List<Comment> comment = commentService.getComment(pid, uid); //计算该用户是否已有过对该商品的评论
-		
+	
+		List<Comment> comment = commentService.getComment(pid, uid); //该用户是否已有过对该商品的评论
 		//如果有
 		if (!comment.isEmpty() && comment.size() > 0) {
 			//获取之前的评论

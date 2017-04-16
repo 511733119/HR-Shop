@@ -2,13 +2,16 @@ package com.hr.shop.model;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.hr.shop.jsonView.View;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.Set;
 
 /**
@@ -16,13 +19,20 @@ import java.util.Set;
  * HR-Shop
  * Created by hjc
  * User: hjc
- * Date: 2017/3/30 15:29
+ * Timestamp: 2017/3/30 15:29
  */
 @Entity
 @Table(name = "comment")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@Cacheable(value = true)
 public class Comment implements Serializable{
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	/**
      * 评论id
      */
     @Id
@@ -83,6 +93,7 @@ public class Comment implements Serializable{
     @OneToMany(targetEntity=Comment_Pic.class, cascade=CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "comment_id")
     @JsonView({View.summary.class})
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Comment_Pic> comment_pic_Set;
 
     @OneToOne()

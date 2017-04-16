@@ -17,7 +17,11 @@ import javax.persistence.*;
 @Cacheable(value = true)
 public class Status implements java.io.Serializable {
 
-	// Fields
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

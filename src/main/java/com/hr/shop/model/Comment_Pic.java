@@ -4,20 +4,26 @@ package com.hr.shop.model;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.hr.shop.jsonView.View;
 
+import java.sql.Timestamp;
+
 import javax.persistence.*;
 
-import java.sql.Timestamp;
-import java.util.Date;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.springframework.format.annotation.DateTimeFormat;
+
 
 /**
  * 评论存储的图片实体类
  * HR-Shop
  * Created by hjc
  * User: hjc
- * Date: 2017/3/30 15:29
+ * Timestamp: 2017/3/30 15:29
  */
 @Entity
 @Table(name = "comment_pic")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@Cacheable(value = true)
 public class Comment_Pic implements java.io.Serializable {
 
 	// Fields
@@ -36,7 +42,7 @@ public class Comment_Pic implements java.io.Serializable {
 	@JsonView({View.summary.class})
 	private String pic;
 
-	@ManyToOne()
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="comment_id")
 	private Comment comment;
 

@@ -13,18 +13,19 @@ import java.util.List;
  * HR-Shop
  * Created by hjc
  * User: hjc
- * Date: 2017/3/31 20:30
+ * Timestamp: 2017/3/31 20:30
  */
 @Repository
 public class Append_CommentDaoImpl extends BaseDaoImpl<Append_Comment> implements Append_CommentDao {
 
 	@Override
-	public int getAppend_Comment(int pid, int uid){
-		String hql = "SELECT ac.id FROM Append_Comment ac WHERE ac.product.id=:pid AND ac.user.id=:uid";
-		return ((Number)getSession().createQuery(hql)
+	public List<Append_Comment> getAppend_Comment(int pid, int uid){
+		String hql = "SELECT ac.id FROM Append_Comment ac"
+				+ " WHERE ac.product.id=:pid"
+				+ " AND ac.user.id=:uid";
+		return getSession().createQuery(hql)
 				.setInteger("pid", pid)
 				.setInteger("uid", uid)
-				.uniqueResult())
-				.intValue();
+				.list();
 	}
 }

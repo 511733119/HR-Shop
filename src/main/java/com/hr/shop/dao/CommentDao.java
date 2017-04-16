@@ -1,5 +1,6 @@
 package com.hr.shop.dao;
 
+import com.hr.shop.dto.Comment_dto;
 import com.hr.shop.model.Comment;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
  * HR-Shop
  * Created by hjc
  * User: hjc
- * Date: 2017/3/31 20:30
+ * Timestamp: 2017/3/31 20:30
  */
 public interface CommentDao extends BaseDao<Comment> {
 

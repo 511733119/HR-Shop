@@ -3,7 +3,6 @@ package com.hr.shop.daoImpl;
 import org.springframework.stereotype.Repository;
 
 import com.hr.shop.dao.SorderDao;
-import com.hr.shop.dto.Sorder_Comment;
 import com.hr.shop.model.Sorder;
 /**
  * @author hjc
@@ -13,10 +12,11 @@ import com.hr.shop.model.Sorder;
 public class SorderDaoImpl extends BaseDaoImpl<Sorder> implements SorderDao {
 
 	@Override
-	public Sorder_Comment getSorder(int id){
-		String hql = "FROM Sorder s WHERE s.id=:id";
-//		String hql = "SELECT new com.hr.shop.dto.Sorder_Comment(s.id,s.product.name) FROM Sorder s WHERE s.id=:id";
-		return (Sorder)getSession().createQuery(hql).setInteger("id", id).list();
-//		return (Sorder_Comment)getSession().createQuery(hql).setInteger("id", id).uniqueResult();
+	public void updateComm_flag(int id , int comm_flag){
+		String hql = "UPDATE Sorder s SET s.comm_flag=:comm_flag WHERE s.id=:id";
+		getSession().createQuery(hql)
+					.setInteger("comm_flag", comm_flag)
+					.setInteger("id", id)
+					.executeUpdate();
 	}
 }

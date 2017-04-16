@@ -7,12 +7,12 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.DecimalMin;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.Set;
 
 /**
@@ -90,6 +90,12 @@ public class Forder implements java.io.Serializable {
 	private Timestamp update_date;
 
 	/**
+	 * 支付日期
+	 */
+	@Column(name = "pay_date" , length = 19)
+	private Timestamp pay_date;
+	
+	/**
 	 * 对应用户表主键
 	 */
 	@ManyToOne
@@ -119,7 +125,6 @@ public class Forder implements java.io.Serializable {
 	 */
 	@Column(name = "flag", length = 1)
 	private int flag;
-	// Constructors
 
 	/** default constructor */
 	public Forder() {
@@ -216,4 +221,5 @@ public class Forder implements java.io.Serializable {
 	public Timestamp getUpdate_date() {
 		return update_date;
 	}
+	
 }

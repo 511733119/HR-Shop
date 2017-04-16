@@ -192,8 +192,6 @@
       <version>2.7.0</version>
     </dependency>
 
-
-
     <dependency>
       <groupId>javassist</groupId>
       <artifactId>javassist</artifactId>
@@ -231,6 +229,14 @@
       <version>2.0.1</version>
     </dependency>
 
+	<!-- HttpClient -->
+	<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+	<dependency>
+	    <groupId>org.apache.httpcomponents</groupId>
+	    <artifactId>httpclient</artifactId>
+	    <version>4.3.6</version>
+	</dependency>
+	
   </dependencies>
 
 

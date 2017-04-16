@@ -4,7 +4,7 @@ package com.hr.shop.jsonView;
  * HR-Shop
  * Created by hjc
  * User: hjc
- * Date: 2017/3/23 23:15
+ * Timestamp: 2017/3/23 23:15
  */
 public class View {
     public interface summary {}//基本

@@ -5,12 +5,13 @@ import com.hr.shop.jsonView.View;
 import com.hr.shop.validatorInterface.ValidInterface;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.sql.Timestamp;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 
-import java.sql.Timestamp;
-import java.util.Date;
 
 /**
  * @author hjc
@@ -39,7 +40,7 @@ public class Cart implements java.io.Serializable {
 	@Min(value = 1 ,groups = {ValidInterface.class})
 	private Integer number;
 
-	@ManyToOne()
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="ptid")
 	@JsonView({View.summary.class})
 	private Protype protype;

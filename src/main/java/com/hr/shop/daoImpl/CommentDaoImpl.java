@@ -1,6 +1,7 @@
 package com.hr.shop.daoImpl;
 
 import com.hr.shop.dao.CommentDao;
+import com.hr.shop.dto.Comment_dto;
 import com.hr.shop.model.Append_Comment;
 import com.hr.shop.model.Comment;
 import org.springframework.stereotype.Repository;
@@ -11,7 +12,7 @@ import java.util.List;
  * HR-Shop
  * Created by hjc
  * User: hjc
- * Date: 2017/3/31 20:30
+ * Timestamp: 2017/3/31 20:30
  */
 @Repository
 public class CommentDaoImpl extends BaseDaoImpl<Comment> implements CommentDao {
@@ -32,13 +33,16 @@ public class CommentDaoImpl extends BaseDaoImpl<Comment> implements CommentDao {
                 .setInteger("pid" , pid)
                 .setMaxResults(pageSize)
                 .setFirstResult(fromIndex)
+                .setCacheable(true)
                 .list();
     }
 
 	@Override
 	public void updateComment(int comment_id,int app_com_id) {
-		// TODO Auto-generated method stub
-		String hql = "UPDATE Comment c SET c.flag=1 , c.append_comment.id=:app_com_id WHERE c.id=:comment_id";
+		
+		String hql = "UPDATE Comment c SET c.flag=1 "
+				+ ", c.append_comment.id=:app_com_id"
+				+ " WHERE c.id=:comment_id";
 		getSession().createQuery(hql)
 				.setInteger("app_com_id", app_com_id)
 				.setInteger("comment_id", comment_id)
@@ -48,6 +52,7 @@ public class CommentDaoImpl extends BaseDaoImpl<Comment> implements CommentDao {
 	@Override
 	public List<Comment> getComment(int pid, int uid){
 		String hql = "FROM Comment c WHERE c.product.id=:pid AND c.user.id=:uid";
+//		String hql = "SELECT new com.hr.shop.dto.Comment_dto(c.id,c.star,c.comment,c.create_date) FROM Comment c WHERE c.product.id=:pid AND c.user.id=:uid";
 		return  getSession().createQuery(hql)
 				.setInteger("pid", pid)
 				.setInteger("uid", uid)

@@ -1,6 +1,5 @@
 package com.hr.shop.dao;
 
-import com.hr.shop.dto.Sorder_Comment;
 import com.hr.shop.model.Sorder;
 /**
  * @author hjc
@@ -9,9 +8,9 @@ import com.hr.shop.model.Sorder;
 public interface SorderDao extends BaseDao<Sorder> {
 
 	/**
-	 * 获取用户点击评论时显示的所买商品的信息
+	 * 更新评论标志
 	 * @param id
-	 * @return
+	 * @param comm_flag
 	 */
-	public Sorder_Comment getSorder(int id);
+	public void updateComm_flag(int id , int comm_flag);
 }

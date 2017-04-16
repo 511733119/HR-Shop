@@ -137,4 +137,9 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
 	public void updatAvatar(int id, String avatar) {
 		userDao.updatAvatar(id,avatar);
 	}
+
+	@Override
+	public void updateToken(String token, int uid) {
+		userDao.updateToken(token, uid);
+	}
 }

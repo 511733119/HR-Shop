@@ -8,8 +8,12 @@ import com.hr.shop.service.ProtypeService;
 /*
  * 模块自身的业务逻辑
  */
-@SuppressWarnings("unchecked")
 @Service("protypeService")
 public class ProtypeServiceImpl extends BaseServiceImpl<Protype> implements ProtypeService {
+
+	@Override
+	public void updateInventory(int protype_id, int inventory) {
+		protypeDao.updateInventory(protype_id, inventory);
+	}
 
 }

@@ -1,16 +1,17 @@
 package com.hr.shop.service;
 
 import java.util.List;
+import java.util.Map;
 
-import com.hr.shop.dto.Sorder_Comment;
+import com.hr.shop.dto.Comment_Page;
 import com.hr.shop.model.Sorder;
 
 public interface SorderService extends BaseService<Sorder> {
 
 	/**
-	 * 获取用户点击评论时显示的所买商品的信息
+	 * 更新评论标志
 	 * @param id
-	 * @return
+	 * @param comm_flag
 	 */
-	public Sorder_Comment getSorder(int id);
+	public void updateComm_flag(int id , int comm_flag);
 }

@@ -4,13 +4,15 @@ import com.fasterxml.jackson.annotation.JsonView;
 import com.hr.shop.jsonView.View;
 import com.hr.shop.validatorInterface.ValidInterface;
 
+import java.sql.Timestamp;
+
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
-import java.sql.Timestamp;
-import java.util.Date;
+import org.springframework.format.annotation.DateTimeFormat;
+
 
 /**
  * @author hjc

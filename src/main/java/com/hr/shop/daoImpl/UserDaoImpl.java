@@ -72,5 +72,13 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 		return (User)getSession().createQuery(hql).setString("phone",phone).uniqueResult();
 	}
 
+	@Override
+	public void updateToken(String token , int uid){
+		String hql = "UPDATE User u SET u.token=:token WHERE u.id=:uid";
+		getSession().createQuery(hql)
+				.setString("token", token)
+				.setInteger("uid", uid)
+				.executeUpdate();
+	}
 
 }

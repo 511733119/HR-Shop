@@ -1,6 +1,8 @@
 package com.hr.shop.service;
 
+import com.hr.shop.dto.Comment_dto;
 import com.hr.shop.model.Append_Comment;
+import com.hr.shop.model.Append_Comment_Pic;
 import com.hr.shop.model.Comment;
 import com.hr.shop.model.Comment_Pic;
 
@@ -12,7 +14,7 @@ import java.util.Set;
  * HR-Shop
  * Created by hjc
  * User: hjc
- * Date: 2017/3/31 20:47
+ * Timestamp: 2017/3/31 20:47
  */
 public interface CommentService extends BaseService<Comment> {
 
@@ -58,12 +60,4 @@ public interface CommentService extends BaseService<Comment> {
 	  */
 	 public Comment set_Comment_val(Comment comm , Set<Comment_Pic> cp_Set , int pid , int uid);
 	 
-	 /**
-	  * 给Append_Comment对象赋值
-	  * @param append_Comment
-	  * @param pid
-	  * @param uid
-	  * @return
-	  */
-	 public Append_Comment setAppend_Comment(String append_Comment , int pid, int uid);
 }

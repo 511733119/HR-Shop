@@ -1,9 +1,15 @@
 package com.hr.shop.service;
 
+import com.hr.shop.dto.Order;
+import com.hr.shop.dto.Pay_Result;
+import com.hr.shop.model.Cart;
 import com.hr.shop.model.Forder;
+import com.hr.shop.model.Sorder;
 import com.hr.shop.model.User;
 import com.hr.shop.model.Status;
 
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 public interface ForderService extends BaseService<Forder> {
@@ -14,13 +20,22 @@ public interface ForderService extends BaseService<Forder> {
 	 * @param status 状态对象
 	 * @param forder 订单对象
 	 */
-	public void saveOrder(String json, User user, Status status, Forder forder);
+	public String saveOrder(String json, User user, Status status, Forder forder);
 	/**
 	 * 根据订单编号，更新订单状态
 	 * @param id 订单id
 	 * @param sid 状态id
 	 */
-	public void updateStatusById(int id, int sid);
+	public void updateStatusById(String id, int sid);
+	
+	/**
+	 * 支付成功修改支付时间和订单状态
+	 * @param id 订单id
+	 * @param create_time 支付时间
+	 * @param sid 订单状态id
+	 */
+	public void updateTimeAndStatus(String id, String create_time, int sid);
+	
 	/**
 	 * 查询用户对应的全部订单
 	 * @param uid 用户id
@@ -38,16 +53,57 @@ public interface ForderService extends BaseService<Forder> {
 	public int deleteOrder(String id);
 
 	/**
-	 * 用户未付款，则显示取消订单，设置订单状态为交易关闭，恢复库存
-	 * @param id  订单id
-	 * @return
-	 */
-	public int cancelOrder(String id);
-
-	/**
 	 * 根据订单号查找订单
 	 * @param id
 	 * @return
 	 */
 	public Forder getOrder(String id);
+	
+	/**
+	 * HttpClient访问bmob查询订单获取订单信息
+	 * @param url
+	 * @return
+	 */
+	public String getPay_json(String url);
+	
+	/**
+	 * 解析获取到的订单json信息为Pay_Result类
+	 * @param responseBody json数据 
+	 * @return
+	 */
+	public Pay_Result parsePay_json(String responseBody);
+	
+	/**
+	 * 下单给Forder类赋值
+	 * @param forder
+	 * @param order
+	 * @param status
+	 * @param user
+	 * @param total
+	 * @return
+	 */
+	public Forder setForder(Forder forder ,Order order, Status status,User user , BigDecimal total );
+	/**
+	 * 解析json为Order对象
+	 * @param json
+	 * @return
+	 */
+	public Order parseJson(String json);
+	
+	/**
+	 * 减少库存
+	 * @param id
+	 * @param cart
+	 */
+	public boolean updateInventory(int id , Cart cart);
+	
+	/**
+	 * forder与sorder相关联
+	 * @param sorder
+	 * @param cart
+	 * @param forder
+	 * @param price
+	 */
+	public void setForderSet(Sorder sorder, Cart cart, Forder forder , BigDecimal price);
+	
 }

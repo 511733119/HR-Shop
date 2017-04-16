@@ -2,6 +2,9 @@ package com.hr.shop.util;
 
 import com.hr.shop.model.User;
 import com.hr.shop.service.UserService;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -19,6 +22,8 @@ import java.util.UUID;
 @Component
 public class FileUploadUtil{
 	
+	Logger logger = LoggerFactory.getLogger(FileUploadUtil.class);
+	
 	@Resource
 	UserService userService;
 
@@ -28,6 +33,7 @@ public class FileUploadUtil{
 	/**
 	 *  JDK自带Base64解密
 	 * */
+	@SuppressWarnings("restriction")
 	public static String decoderBase64(String string) {
 		String str = null;
 		BASE64Decoder decoder = new BASE64Decoder();// decode解密
@@ -55,7 +61,9 @@ public class FileUploadUtil{
 				//获取上传文件的类型
 				String type = filename.substring(filename.lastIndexOf("."), filename.length());
 				filename = UUID.randomUUID().toString()+ type;
-				File f = new File(filePath+ "\\" +filename);
+				File f = new File(filePath+ "/" +filename);
+				logger.debug("{}",f.getAbsolutePath());
+				logger.debug("{}",f.getPath());
 				if(!f.exists()){
 					f.mkdirs();
 				}
@@ -75,7 +83,8 @@ public class FileUploadUtil{
 	 * @return
 	 */
 	public String saveCommFiles(MultipartFile file) {
-		return saveFiles(file , config.getCommentFilePath());
+//		return saveFiles(file ,config.getCommentFilePath());
+		return saveFiles(file ,"/var/tomcat/tomcat-7/webapps/comment-img");
 	}
 	
 	/**
@@ -85,7 +94,8 @@ public class FileUploadUtil{
 	 * @return
 	 */
 	public boolean saveHeadFile(MultipartFile file , int id) {
-		String filename =saveFiles(file , config.getFilePath());
+//		String filename =saveFiles(file ,config.getFilePath());
+		String filename =saveFiles(file ,"/var/tomcat/tomcat-7/webapps/head-img");
 		saveToDatabase(filename,id);
 		return true;
 	}

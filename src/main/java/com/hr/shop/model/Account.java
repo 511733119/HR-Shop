@@ -3,8 +3,9 @@ package com.hr.shop.model;
 
 import javax.persistence.*;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.security.Timestamp;
-import java.util.Date;
 
 /**
  * @author hjc

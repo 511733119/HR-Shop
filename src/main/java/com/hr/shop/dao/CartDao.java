@@ -40,4 +40,10 @@ public interface CartDao extends BaseDao<Cart> {
 	 * @param number
 	 */
 	public void updateCartNumber(int id , int number);
+	
+	/**
+	 * 删除购物车中的商品
+	 * @param ids 购物车项的多个id组成的字符串
+	 */
+	public void deleteCart(String ids);
 }

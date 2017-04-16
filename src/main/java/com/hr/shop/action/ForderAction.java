@@ -1,15 +1,25 @@
 package com.hr.shop.action;
 
-import com.fasterxml.jackson.annotation.JsonView;
-import com.hr.shop.Constant.Map_Msg;
-import com.hr.shop.jsonView.View;
-import com.hr.shop.model.*;
-import com.hr.shop.validatorInterface.ValidInterface;
+import java.text.SimpleDateFormat;
+import java.util.Map;
+
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.hr.shop.Constant.Map_Msg;
+import com.hr.shop.dto.Pay_Result;
+import com.hr.shop.jsonView.View;
+import com.hr.shop.model.Forder;
+import com.hr.shop.model.Sorder;
+import com.hr.shop.model.Status;
+import com.hr.shop.model.User;
+import com.hr.shop.validatorInterface.ValidInterface;
 
 /**
  * @author hjc
@@ -37,17 +47,22 @@ public class ForderAction extends BaseAction<Forder> {
 		logger.debug("json:{}, userid :{}",order_json, id);
 
 		User user = new User(id);
+		//如果此用户为空
 		if(user == null){
 			return productService.errorRespMap(respMap ,Map_Msg.PARAM_IS_INVALID );
 		}
+		//设置订单状态为已下单
 		Status status = new Status(1);
 		Forder forder = new Forder();
-
 		//下单
-		forderService.saveOrder(order_json, user, status, forder);
+		String result = forderService.saveOrder(order_json, user, status, forder);
 
+		//如果库存不足,则失败
+		if (result == "0") {
+			return productService.errorRespMap(respMap, Map_Msg.PLACE_ORDER_ERROR);
+		}
 		logger.debug("Ending saveOrder() :");
-		return productService.successRespMap(respMap , Map_Msg.SAVE_ORDER_SUCCESS , "");
+		return productService.successRespMap(respMap , Map_Msg.SAVE_ORDER_SUCCESS ,result);
 	}
 
 	/**
@@ -110,16 +125,37 @@ public class ForderAction extends BaseAction<Forder> {
 		}
 		int inventory = 0;//库存
 		int number = 0;//订单中单件商品数量
-		Protype protype = null;
+		int protype_id ;
 		//遍历订单中的订单项,并恢复对应商品的库存，设置订单状态为交易关闭
 		for (Sorder sorder : forder.getSorderSet()){
 			inventory = sorder.getProtype().getInventory();//获得现在的库存
 			number = sorder.getNumber();//订单项中的下单数量
-			protype = sorder.getProtype();
-			protype.setInventory(inventory + number);//恢复库存
-			protypeService.update(protype);//更新
-			forderService.cancelOrder(fid);//设置订单状态为交易关闭
+			protype_id = sorder.getProtype().getId();//获得该商品id
+			protypeService.updateInventory(protype_id,inventory + number);//更新 库存
+			forderService.updateStatusById(fid, 4);//设置订单状态为交易关闭
 		}
 		return productService.successRespMap(respMap , Map_Msg.DELETE_SUCCESS , "");
 	}
+	
+	@RequestMapping(value = "/pay/{id}" ,method = RequestMethod.GET,produces="application/json;charset=UTF-8")
+	public Map<String, Object> getPay_Result(@PathVariable("id") String id , String fid){
+		
+		logger.debug("Entering getPay_Result()");
+		//目标页面  
+        String url = "https://api.bmob.cn/1/pay/"+id;  
+        String responseBody = forderService.getPay_json(url); //HttpClient抓取bmob订单信息
+        Pay_Result pay_Result = forderService.parsePay_json(responseBody); //解析json数据为Pay_Result类
+        
+        //支付失败则返回
+        if(!"SUCCESS".equals(pay_Result.getTrade_state())){
+        	return productService.errorRespMap(respMap, Map_Msg.ERROR);
+        }
+        SimpleDateFormat formatter = new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");
+        String ctime = formatter.format(pay_Result.getCreate_time());//格式化日期
+        
+        forderService.updateTimeAndStatus(fid, ctime, 2);//更新订单支付时间和订单状态修改为已支付
+        logger.debug("Ending getPay_Result()");
+        return productService.successRespMap(respMap, Map_Msg.SUCCESS,"");
+	}
+	
 }

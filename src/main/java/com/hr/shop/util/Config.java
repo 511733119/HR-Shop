@@ -23,6 +23,28 @@ public class Config {
 	@Value("#{prop.basePath}")
 	private String basePath;
 	
+	@Value("#{prop.application_id}")
+	private String application_id;
+	
+	@Value("#{prop.rest_api_key}")
+	private String rest_api_key;
+	
+	public void setApplication_id(String application_id) {
+		application_id = application_id;
+	}
+	
+	public void setRest_api_key(String rest_api_key) {
+		rest_api_key = rest_api_key;
+	}
+	
+	public String getApplication_id() {
+		return application_id;
+	}
+	
+	public String getRest_api_key() {
+		return rest_api_key;
+	}
+	
 	public void setCommentFilePath(String commentFilePath) {
 		this.commentFilePath = commentFilePath;
 	}

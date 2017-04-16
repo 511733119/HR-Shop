@@ -11,4 +11,12 @@ import com.hr.shop.model.Protype;
 @Repository("protypeDao")
 public class ProtypeDaoImpl extends BaseDaoImpl<Protype> implements ProtypeDao {
 
+	@Override
+	public void updateInventory(int protype_id, int inventory){
+		String hql = "UPDATE Protype pt SET pt.inventory=:inventory WHERE pt.id=:protype_id";
+		getSession().createQuery(hql)
+					.setInteger("inventory", inventory)
+					.setInteger("protype_id", protype_id)
+					.executeUpdate();
+	}
 }

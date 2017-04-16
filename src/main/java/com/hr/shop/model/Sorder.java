@@ -5,11 +5,11 @@ import com.fasterxml.jackson.annotation.JsonView;
 import com.hr.shop.jsonView.View;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-import java.util.Date;
 
 /**
  * @author hjc
@@ -42,12 +42,12 @@ public class Sorder implements java.io.Serializable {
 	@JsonView(View.summary.class)
 	private Integer number;
 
-	@ManyToOne()
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="ptid")
 	@JsonView(View.son.class)
 	private Protype protype;
 
-	@ManyToOne()
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="fid")
 	private Forder forder;
 
@@ -64,7 +64,12 @@ public class Sorder implements java.io.Serializable {
 	@Column(name = "update_date", length =19 )
 	private Timestamp update_date;
 
-	// Constructors
+	/**
+	 * 标记该订单用户是否已评论，0表示没有评论，1表示已有一次评论，2表示已追加评论
+	 */
+	@Column(name="comm_flag", length = 1)
+	@JsonView(View.summary.class)
+	private int comm_flag;
 
 	/** default constructor */
 	public Sorder() {
@@ -129,5 +134,13 @@ public class Sorder implements java.io.Serializable {
 
 	public Timestamp getUpdate_date() {
 		return update_date;
+	}
+	
+	public void setComm_flag(int comm_flag) {
+		this.comm_flag = comm_flag;
+	}
+	
+	public int getComm_flag() {
+		return comm_flag;
 	}
 }

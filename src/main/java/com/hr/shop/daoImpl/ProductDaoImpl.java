@@ -33,7 +33,12 @@ public class ProductDaoImpl extends BaseDaoImpl<Product> implements ProductDao {
 
 	@Override
 	public List<Product> queryByCid(int cid) {
-		String hql = "FROM Product p JOIN FETCH p.category WHERE p.commend=true AND p.open=true AND p.category.id=:cid ORDER BY p.create_date DESC";
+		String hql = "FROM Product p"
+				+ " JOIN FETCH p.category"
+				+ " WHERE p.commend=true"
+				+ " AND p.open=true"
+				+ " AND p.category.id=:cid"
+				+ " ORDER BY p.create_date DESC";
 		return getSession().createQuery(hql).setInteger("cid", cid)
 				.setFirstResult(0)
 				.setMaxResults(4)
@@ -44,7 +49,13 @@ public class ProductDaoImpl extends BaseDaoImpl<Product> implements ProductDao {
 	public List<Product> getSimilarProduct(String name ,int pageNum,int pageSize) {
 		int fromIndex = pageSize * (pageNum-1);
 
-		String hql = "FROM Product p JOIN FETCH p.protypeSet JOIN FETCH p.category WHERE p.commend=true AND p.open=true AND p.name LIKE :name ORDER BY p.sales DESC";
+		String hql = "FROM Product p"
+				+ " JOIN FETCH p.protypeSet"
+				+ " JOIN FETCH p.category"
+				+ " WHERE p.commend=true"
+				+ " AND p.open=true"
+				+ " AND p.name LIKE :name"
+				+ " ORDER BY p.sales DESC";
 		return getSession().createQuery(hql)
 				.setString("name", "%"+name+"%")
 				.setFirstResult(fromIndex)
@@ -57,7 +68,13 @@ public class ProductDaoImpl extends BaseDaoImpl<Product> implements ProductDao {
 		
 		int fromIndex = pageSize * (pageNum-1);
 		
-		String hql ="FROM Product p JOIN FETCH p.protypeSet JOIN FETCH p.category WHERE p.commend=true AND p.open=true AND p.category.id=:cid ORDER BY p.sales DESC";
+		String hql ="FROM Product p"
+				+ " JOIN FETCH p.protypeSet"
+				+ " JOIN FETCH p.category"
+				+ " WHERE p.commend=true"
+				+ " AND p.open=true"
+				+ " AND p.category.id=:cid"
+				+ " ORDER BY p.sales DESC";
 		return getSession().createQuery(hql)
 						.setInteger("cid", id)
 						.setFirstResult(fromIndex)
@@ -72,7 +89,12 @@ public class ProductDaoImpl extends BaseDaoImpl<Product> implements ProductDao {
 
 		int fromIndex = pageSize * (pageNum-1);
 
-		String hql ="FROM Product p JOIN FETCH p.protypeSet JOIN fetch p.category WHERE p.commend=true AND p.open=true ORDER BY p."+ field +" DESC";
+		String hql ="FROM Product p"
+				+ " JOIN FETCH p.protypeSet"
+				+ " JOIN fetch p.category"
+				+ " WHERE p.commend=true"
+				+ " AND p.open=true"
+				+ " ORDER BY p."+ field +" DESC";
 		return getSession().createQuery(hql)
 						.setCacheable(true)
 						.setFirstResult(fromIndex)
@@ -82,7 +104,10 @@ public class ProductDaoImpl extends BaseDaoImpl<Product> implements ProductDao {
 
 	@Override
 	public List<Product> getProduct(int pid) {
-		String hql = "FROM Product p JOIN FETCH p.category JOIN FETCH p.protypeSet WHERE p.id=:pid";
+		String hql = "FROM Product p"
+				+ " JOIN FETCH p.category"
+				+ " JOIN FETCH p.protypeSet"
+				+ " WHERE p.id=:pid";
 		return  getSession().createQuery(hql)
 				.setInteger("pid", pid)
 				.setFirstResult(0)
@@ -93,7 +118,10 @@ public class ProductDaoImpl extends BaseDaoImpl<Product> implements ProductDao {
 
 	@Override
 	public List<Product> getSearchList() {
-		String hql = "SELECT p.name FROM Product p WHERE p.commend=true AND p.open=true ORDER BY p.sales desc ";
+		String hql = "SELECT p.name FROM Product p"
+				+ " WHERE p.commend=true"
+				+ " AND p.open=true"
+				+ " ORDER BY p.sales desc ";
 		return getSession().createQuery(hql)
 				.setFirstResult(0)
 				.setMaxResults(10)

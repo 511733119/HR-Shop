@@ -4,19 +4,26 @@ package com.hr.shop.model;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.hr.shop.jsonView.View;
 
-import javax.persistence.*;
-import java.sql.Date;
 import java.sql.Timestamp;
+
+import javax.persistence.*;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.springframework.format.annotation.DateTimeFormat;
+
 
 /**
  * 追加评论存储的图片实体类
  * HR-Shop
  * Created by hjc
  * User: hjc
- * Date: 2017/3/30 15:29
+ * Timestamp: 2017/3/30 15:29
  */
 @Entity
 @Table(name = "append_comment_pic")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@Cacheable(value = true)
 public class Append_Comment_Pic implements java.io.Serializable {
 
 	// Fields
@@ -35,9 +42,9 @@ public class Append_Comment_Pic implements java.io.Serializable {
 	@JsonView({View.summary.class})
 	private String pic;
 
-	@ManyToOne()
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="append_comment_id")
-	private Comment append_comment;
+	private Append_Comment append_comment;
 
 	/**
 	 * 创建日期
@@ -78,11 +85,11 @@ public class Append_Comment_Pic implements java.io.Serializable {
 		this.pic = pic;
 	}
 
-	public void setAppend_comment(Comment append_comment) {
+	public void setAppend_comment(Append_Comment append_comment) {
 		this.append_comment = append_comment;
 	}
 
-	public Comment getAppend_comment() {
+	public Append_Comment getAppend_comment() {
 		return append_comment;
 	}
 

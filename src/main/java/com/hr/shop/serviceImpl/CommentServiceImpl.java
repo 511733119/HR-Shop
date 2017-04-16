@@ -1,6 +1,8 @@
 package com.hr.shop.serviceImpl;
 
+import com.hr.shop.dto.Comment_dto;
 import com.hr.shop.model.Append_Comment;
+import com.hr.shop.model.Append_Comment_Pic;
 import com.hr.shop.model.Comment;
 import com.hr.shop.model.Comment_Pic;
 import com.hr.shop.model.Product;
@@ -16,7 +18,7 @@ import java.util.Set;
  * HR-Shop
  * Created by hjc
  * User: hjc
- * Date: 2017/3/31 20:48
+ * Timestamp: 2017/3/31 20:48
  */
 @Service
 public class CommentServiceImpl extends BaseServiceImpl<Comment> implements CommentService{
@@ -52,11 +54,5 @@ public class CommentServiceImpl extends BaseServiceImpl<Comment> implements Comm
     	return comm;
 	}
 	
-	@Override
-	public Append_Comment setAppend_Comment(String append_Comment , int pid, int uid){
-		Append_Comment app_com = new Append_Comment(append_Comment); 
-    	app_com.setProduct(new Product(pid));
-    	app_com.setUser(new User(uid));
-    	return app_com;
-	}
+	
 }

@@ -2,6 +2,7 @@ package com.hr.shop.dao;
 
 import com.hr.shop.model.Forder;
 
+import java.util.Date;
 import java.util.List;
 /**
  * @author hjc
@@ -14,7 +15,16 @@ public interface ForderDao extends BaseDao<Forder> {
 	 * @param id 订单id
 	 * @param sid 状态id
 	 */
-	public void updateStatusById(int id, int sid);
+	public void updateStatusById(String id, int sid);
+	
+	/**
+	 * 支付成功修改支付时间和订单状态
+	 * @param id 订单id
+	 * @param create_time 支付时间
+	 * @param sid 订单状态id
+	 */
+	public void updateTimeAndStatus(String id, String create_time, int sid);
+	
 	/**
 	 * 查询用户对应的全部订单
 	 * @param uid 用户id
@@ -30,13 +40,6 @@ public interface ForderDao extends BaseDao<Forder> {
 	 * @return
 	 */
 	public int deleteOrder(String id);
-
-	/**
-	 * 用户未付款，则显示取消订单，设置订单状态为交易关闭，恢复库存
-	 * @param id  订单id
-	 * @return
-	 */
-	public int cancelOrder(String id);
 
 	/**
 	 * 根据订单号查找订单

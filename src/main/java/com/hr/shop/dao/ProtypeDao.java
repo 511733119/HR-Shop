@@ -7,4 +7,10 @@ import com.hr.shop.model.Protype;
  */
 public interface ProtypeDao extends BaseDao<Protype> {
 
+	/**
+	 * 更新库存
+	 * @param protype_id
+	 * @param inventory
+	 */
+	public void updateInventory(int protype_id, int inventory);
 }

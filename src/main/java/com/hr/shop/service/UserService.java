@@ -72,4 +72,11 @@ public interface UserService extends BaseService<User> {
 	 * @param avatar
 	 */
 	public void updatAvatar(int id, String avatar);
+	
+	/**
+	 * 更新token
+	 * @param token
+	 * @param uid
+	 */
+	public void updateToken(String token , int uid);
 }

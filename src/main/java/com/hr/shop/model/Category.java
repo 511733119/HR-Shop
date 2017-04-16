@@ -3,11 +3,12 @@ package com.hr.shop.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.sql.Timestamp;
 
 import javax.persistence.*;
 
-import java.sql.Timestamp;
-import java.util.Date;
 
 /**
  * @author hjc

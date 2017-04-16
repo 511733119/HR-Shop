@@ -21,7 +21,9 @@ public class CategoryDaoImpl extends BaseDaoImpl<Category> implements CategoryDa
 
 	@Override
 	public List<Category> queryJoinAccount(String type,int page,int size) {
-		String hql = "FROM Category c LEFT JOIN FETCH c.account WHERE c.type LIKE :type";
+		String hql = "FROM Category c"
+				+ " LEFT JOIN FETCH c.account"
+				+ " WHERE c.type LIKE :type";
 		return getSession().createQuery(hql)
 			.setString("type", "%"+type+"%")
 			.setFirstResult((page-1)*size)

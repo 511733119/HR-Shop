@@ -67,4 +67,9 @@ public class CartServiceImpl extends BaseServiceImpl<Cart> implements CartServic
 	public void updateCartNumber(int id, int number) {
 		cartDao.updateCartNumber(id,number);
 	}
+
+	@Override
+	public void deleteCart(String ids) {
+		cartDao.deleteCart(ids);
+	}
 }

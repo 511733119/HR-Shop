@@ -1,6 +1,5 @@
 package com.hr.shop.daoImpl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -27,7 +26,12 @@ public class CartDaoImpl extends BaseDaoImpl<Cart> implements CartDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Cart> getCart(int uid) {
-		String hql = " SELECT DISTINCT c FROM Cart c JOIN FETCH c.protype pt JOIN FETCH pt.product p JOIN FETCH p.protypeSet JOIN FETCH p.category WHERE c.user.id=:uid";
+		String hql = " SELECT DISTINCT c FROM Cart c"
+				+ " JOIN FETCH c.protype pt"
+				+ " JOIN FETCH pt.product p"
+				+ " JOIN FETCH p.protypeSet"
+				+ " JOIN FETCH p.category"
+				+ " WHERE c.user.id=:uid";
 		return getSession().createQuery(hql)
 					.setCacheable(true)
 					.setInteger("uid", uid)
@@ -62,5 +66,11 @@ public class CartDaoImpl extends BaseDaoImpl<Cart> implements CartDao {
 	public void updateCartNumber(int id, int number) {
 		String hql ="UPDATE Cart c SET c.number = :number WHERE c.id = :id";
 		getSession().createQuery(hql).setInteger("number",number).setInteger("id",id).executeUpdate();
+	}
+	
+	@Override
+	public void deleteCart(String ids){
+		String hql = "DELETE FROM Cart WHERE id in (:ids)";
+		getSession().createQuery(hql).setString("ids", ids).executeUpdate();
 	}
 }

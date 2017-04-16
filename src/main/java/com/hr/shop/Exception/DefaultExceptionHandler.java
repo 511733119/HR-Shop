@@ -16,7 +16,7 @@ import java.io.IOException;
  * HR-Shop
  * Created by hjc
  * User: hjc
- * Date: 2017/3/24 15:28
+ * Timestamp: 2017/3/24 15:28
  */
 public class DefaultExceptionHandler implements HandlerExceptionResolver {
     private static Logger log = LoggerFactory.getLogger(DefaultExceptionHandler.class);
