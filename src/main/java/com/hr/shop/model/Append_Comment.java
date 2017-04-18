@@ -147,4 +147,12 @@ public class Append_Comment implements Serializable{
     public Set<Append_Comment_Pic> getAppend_comment_pic_Set() {
         return append_comment_pic_Set;
     }
+
+	@Override
+	public String toString() {
+		return "Append_Comment [id=" + id + ", append_comment=" + append_comment + ", product=" + product + ", user="
+				+ user + ", create_date=" + create_date + ", update_date=" + update_date + ", append_comment_pic_Set="
+				+ append_comment_pic_Set + "]";
+	}
+    
 }

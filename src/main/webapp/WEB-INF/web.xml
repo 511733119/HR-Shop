@@ -53,7 +53,7 @@
   </error-page>
   <error-page>
     <exception-type>java.lang.Exception</exception-type>
-    <location>/error_404</location>
+    <location>/error_400</location>
   </error-page>
   <error-page>
     <error-code>500</error-code>

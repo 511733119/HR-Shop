@@ -84,6 +84,7 @@ public class Product implements java.io.Serializable {
 	 */
 	@Column(name = "sales" )
 	@JsonView({View.summary.class })
+	@Min(0)
 	private Integer sales;
 
 	/**
@@ -93,6 +94,14 @@ public class Product implements java.io.Serializable {
 	@JoinColumn(name="cid")
 	private Category category;
 
+	/**
+	 * 对应所属商家
+	 */
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="bid")
+	@JsonView({View.summary.class })
+	private Business business;
+	
 	/**
 	 * 对应商品细分种类
 	 */
@@ -199,11 +208,6 @@ public class Product implements java.io.Serializable {
 		return sales;
 	}
 
-	@Override
-	public String toString() {
-		return super.toString();
-	}
-
 	public void setUpdate_date(Timestamp update_date) {
 		this.update_date = update_date;
 	}
@@ -211,4 +215,20 @@ public class Product implements java.io.Serializable {
 	public Timestamp getUpdate_date() {
 		return update_date;
 	}
+	
+	public void setBusiness(Business business) {
+		this.business = business;
+	}
+	
+	public Business getBusiness() {
+		return business;
+	}
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", price=" + price + ", remark=" + remark + ", create_date="
+				+ create_date + ", update_date=" + update_date + ", commend=" + commend + ", open=" + open + ", sales="
+				+ sales + ", category=" + category + ", business=" + business + ", protypeSet=" + protypeSet + "]";
+	}
+	
 }

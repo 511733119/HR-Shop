@@ -21,7 +21,7 @@ public class Account implements java.io.Serializable {
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private int id;
 
 	/**
 	 * 管理员用户名
@@ -101,6 +101,8 @@ public class Account implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return super.toString();
+		return "Account [id=" + id + ", accountname=" + accountname + ", accountpwd=" + accountpwd + ", create_date="
+				+ create_date + ", update_date=" + update_date + "]";
 	}
+
 }

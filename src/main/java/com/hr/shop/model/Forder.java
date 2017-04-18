@@ -11,6 +11,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
+
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Set;
@@ -64,7 +66,7 @@ public class Forder implements java.io.Serializable {
 	 */
 	@Column(name = "total", precision=8,scale=2)
 	@JsonView(View.summary.class)
-	@NotEmpty
+	@NotNull
 	@DecimalMin(value = "0.00")
 	private BigDecimal total;
 
@@ -221,5 +223,12 @@ public class Forder implements java.io.Serializable {
 	public Timestamp getUpdate_date() {
 		return update_date;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Forder [id=" + id + ", name=" + name + ", phone=" + phone + ", remark=" + remark + ", total=" + total
+				+ ", address=" + address + ", create_date=" + create_date + ", update_date=" + update_date
+				+ ", pay_date=" + pay_date + ", user=" + user + ", status=" + status + ", sorderSet=" + sorderSet
+				+ ", flag=" + flag + "]";
+	}
 }

@@ -19,4 +19,5 @@ public class ProtypeDaoImpl extends BaseDaoImpl<Protype> implements ProtypeDao {
 					.setInteger("protype_id", protype_id)
 					.executeUpdate();
 	}
+	
 }

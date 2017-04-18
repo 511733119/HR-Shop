@@ -106,7 +106,8 @@ public class ProductDaoImpl extends BaseDaoImpl<Product> implements ProductDao {
 	public List<Product> getProduct(int pid) {
 		String hql = "FROM Product p"
 				+ " JOIN FETCH p.category"
-				+ " JOIN FETCH p.protypeSet"
+				+ " LEFT JOIN FETCH p.protypeSet"
+				+ " JOIN FETCH p.business"
 				+ " WHERE p.id=:pid";
 		return  getSession().createQuery(hql)
 				.setInteger("pid", pid)
@@ -127,5 +128,14 @@ public class ProductDaoImpl extends BaseDaoImpl<Product> implements ProductDao {
 				.setMaxResults(10)
 				.setCacheable(true)
 				.list();
+	}
+	
+	@Override
+	public void updateSales(int pid, int buy_number){
+		String hql = "UPDATE Product p SET p.sales=sales+:buy_number WHERE p.id=:pid";
+		getSession().createQuery(hql)
+					.setInteger("buy_number", buy_number)
+					.setInteger("pid", pid)
+					.executeUpdate();
 	}
 }

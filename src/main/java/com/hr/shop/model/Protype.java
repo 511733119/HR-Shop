@@ -50,6 +50,7 @@ public class Protype implements java.io.Serializable {
 	 */
 	@JsonView({View.summary.class})
 	@Column(name = "inventory")
+	@Min(0)
 	private Integer inventory;
 
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -133,4 +134,11 @@ public class Protype implements java.io.Serializable {
 	public Timestamp getUpdate_date() {
 		return update_date;
 	}
+
+	@Override
+	public String toString() {
+		return "Protype [id=" + id + ", name=" + name + ", pic=" + pic + ", inventory=" + inventory + ", product="
+				+ product + ", create_date=" + create_date + ", update_date=" + update_date + "]";
+	}
+	
 }

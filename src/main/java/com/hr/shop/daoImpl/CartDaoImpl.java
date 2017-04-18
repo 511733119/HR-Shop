@@ -69,8 +69,19 @@ public class CartDaoImpl extends BaseDaoImpl<Cart> implements CartDao {
 	}
 	
 	@Override
-	public void deleteCart(String ids){
-		String hql = "DELETE FROM Cart WHERE id in (:ids)";
-		getSession().createQuery(hql).setString("ids", ids).executeUpdate();
+	public void deleteCart(int[] ids){
+		int length = ids.length;
+		StringBuilder hql = new StringBuilder() ;
+		if(length == 1){
+			hql.append("DELETE FROM Cart WHERE id in (").append(ids[0]).append(")");
+		}
+		if(length > 1){
+			hql.append("DELETE FROM Cart WHERE id in (").append(ids[0]);
+			for(int i = 1; i < ids.length; i++){
+				hql.append(",").append(ids[i]);
+			}
+			hql.append(")");
+		}
+		getSession().createQuery(hql.toString()).executeUpdate();
 	}
 }

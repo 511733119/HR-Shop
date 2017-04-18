@@ -1,6 +1,5 @@
 package com.hr.shop.Exception;
 
-import com.hr.shop.Constant.Map_Msg;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -29,7 +28,7 @@ public class DefaultExceptionHandler implements HandlerExceptionResolver {
         response.setCharacterEncoding("UTF-8"); //避免乱码
         response.setHeader("Cache-Control", "no-cache, must-revalidate");
         try {
-            response.getWriter().write("{\"status\":"+ Map_Msg.PARAM_IS_INVALID + ",\"msg\":\"" + ex.getMessage() + "\"}");
+            response.getWriter().write("{\"error_code\":"+ 400 + ",\"message\":\"" + "请输入正确的数据" + "\"}");
         } catch (IOException e) {
             log.error("与客户端通讯异常:"+ e.getMessage(), e);
         }

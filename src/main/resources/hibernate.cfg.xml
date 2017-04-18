@@ -31,6 +31,7 @@
 		<mapping class="com.hr.shop.model.Category" />
 		<mapping class="com.hr.shop.model.Account" />
 		<mapping class="com.hr.shop.model.Product" />
+		<mapping class="com.hr.shop.model.Business" />
 		<mapping class="com.hr.shop.model.Status" />
 		<mapping class="com.hr.shop.model.Forder" />
 		<mapping class="com.hr.shop.model.Sorder" />

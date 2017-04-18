@@ -43,7 +43,7 @@ public interface CartDao extends BaseDao<Cart> {
 	
 	/**
 	 * 删除购物车中的商品
-	 * @param ids 购物车项的多个id组成的字符串
+	 * @param ids 购物车项的多个id组成的数组
 	 */
-	public void deleteCart(String ids);
+	public void deleteCart(int[] ids);
 }

@@ -178,4 +178,10 @@ public class User implements java.io.Serializable {
 	public Timestamp getCreate_date() {
 		return create_date;
 	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", phone=" + phone + ", password=" + password + ", token="
+				+ token + ", avatar=" + avatar + ", create_date=" + create_date + ", update_date=" + update_date + "]";
+	}
 }

@@ -63,4 +63,10 @@ public interface ProductDao extends BaseDao<Product> {
 	 */
 	public List<Product> getSearchList();
 
+	/**
+	 * 用户支付成功后，更新商品的销量
+	 * @param pid
+	 * @param buy_number
+	 */
+	public void updateSales(int pid, int buy_number);
 }

@@ -143,4 +143,11 @@ public class Sorder implements java.io.Serializable {
 	public int getComm_flag() {
 		return comm_flag;
 	}
+
+	@Override
+	public String toString() {
+		return "Sorder [id=" + id + ", price=" + price + ", number=" + number + ", protype=" + protype + ", forder="
+				+ forder + ", create_date=" + create_date + ", update_date=" + update_date + ", comm_flag=" + comm_flag
+				+ "]";
+	}
 }

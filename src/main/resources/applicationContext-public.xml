@@ -11,7 +11,16 @@
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd"
 >
-	<context:component-scan base-package="com.hr.shop.."/>
+
+<!-- use-default-filters用来指示是否自动扫描带有@Component、@Repository、@Service和@Controller的类。默认为true，即默认扫描。 -->
+	<context:component-scan base-package="com.hr.shop.*" use-default-filters="true">
+		<context:exclude-filter type="annotation" 
+			expression="org.springframework.stereotype.Controller" />
+        <context:exclude-filter type="annotation"
+            expression="org.springframework.web.bind.annotation.ControllerAdvice" />
+        <context:exclude-filter type="annotation"
+            expression="org.springframework.web.bind.annotation.RestController" />
+	</context:component-scan>
 	<!-- 所有的properties文件应该交给Spring管理，而且在启动的时候加载
 		 spring支持两种方式，property-placeholder仅仅在xml中使用
 	 -->
@@ -51,7 +60,7 @@
 	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
-
+	
 	<tx:advice id="advice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="save*" propagation="REQUIRED"/>
@@ -59,17 +68,15 @@
 			<tx:method name="update*" propagation="REQUIRED"/>
 			<tx:method name="delete*" propagation="REQUIRED"/>
 			<tx:method name="remove*" propagation="REQUIRED"/>
-			<tx:method name="*" propagation="REQUIRED" read-only="true"/>
+			<tx:method name="*" propagation="REQUIRED"/>
 		</tx:attributes>
 	</tx:advice>
 
 	<aop:config>
 		<!-- 配置哪些包的类要切入事务 -->
-		<aop:pointcut expression="execution(* com.hr.shop.*.*.*(..))" id="pointcut"/>
+		<aop:pointcut expression="execution(* com.hr.shop.serviceImpl.*.*(..))" id="pointcut"/>
 		<!-- 通知+切面表达式，才是完整的切入路径 -->
 		<aop:advisor advice-ref="advice" pointcut-ref="pointcut"/>
-
-	</aop:config>
-
-
+	</aop:config>	
+	
 </beans>
