@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.List;
 
-/*
- * 模块自身的业务逻辑
+/**
+ * 购物车接口实现类
+ * @author hjc
+ *
  */
 @Service("cartService")
 public class CartServiceImpl extends BaseServiceImpl<Cart> implements CartService {
@@ -69,7 +71,7 @@ public class CartServiceImpl extends BaseServiceImpl<Cart> implements CartServic
 	}
 
 	@Override
-	public void deleteCart(String ids) {
+	public void deleteCart(int[] ids) {
 		cartDao.deleteCart(ids);
 	}
 }

@@ -3,7 +3,12 @@ package com.hr.shop.service;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+ * 基础服务接口类
+ * @author hjc
+ *
+ * @param <T>
+ */
 public interface BaseService<T> {
 
 	public void save(T t);

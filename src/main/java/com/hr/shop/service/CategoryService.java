@@ -3,7 +3,11 @@ package com.hr.shop.service;
 import com.hr.shop.model.Category;
 
 import java.util.List;
-
+/**
+ * 商品种类服务接口类
+ * @author hjc
+ *
+ */
 public interface CategoryService extends BaseService<Category> {
 
 	/**

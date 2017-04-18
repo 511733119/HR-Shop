@@ -9,6 +9,8 @@ import com.hr.shop.model.Comment_Pic;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.web.multipart.MultipartFile;
+
 /**
  * 评论服务接口
  * HR-Shop
@@ -59,5 +61,16 @@ public interface CommentService extends BaseService<Comment> {
 	  * @return
 	  */
 	 public Comment set_Comment_val(Comment comm , Set<Comment_Pic> cp_Set , int pid , int uid);
+	 
+	 /**
+	  * 保存评论
+	  * @param star 星星数
+	  * @param comment 评论
+	  * @param file 
+	  * @param pid 商品id
+	  * @param uid 用户id
+	  * @param sid 订单项id
+	  */
+	 public void saveComment(int star, String comment , MultipartFile[] file , int pid, int uid , int sid);
 	 
 }

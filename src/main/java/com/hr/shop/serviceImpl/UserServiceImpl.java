@@ -13,7 +13,9 @@ import redis.clients.jedis.Jedis;
 import java.util.regex.Pattern;
 
 /**
- * 模块自身的业务逻辑
+ * 用户类服务接口实现类
+ * @author hjc
+ *
  */
 @Service("userService")
 public class UserServiceImpl extends BaseServiceImpl<User> implements UserService {

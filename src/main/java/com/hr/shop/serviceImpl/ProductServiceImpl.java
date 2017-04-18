@@ -6,8 +6,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/*
- * 模块自身的业务逻辑
+/**
+ * 商品服务接口实现类
+ * @author hjc
+ *
  */
 @SuppressWarnings("unchecked")
 @Service("productService")
@@ -52,5 +54,10 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
 	@Override
 	public List<Product> getSearchList() {
 		return productDao.getSearchList();
+	}
+
+	@Override
+	public void updateSales(int pid, int buy_number) {
+		productDao.updateSales(pid, buy_number);
 	}
 }

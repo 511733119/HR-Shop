@@ -1,7 +1,11 @@
 package com.hr.shop.service;
 
 import com.hr.shop.model.User;
-
+/**
+ * 用户类服务接口类
+ * @author hjc
+ *
+ */
 public interface UserService extends BaseService<User> {
 
 	/**

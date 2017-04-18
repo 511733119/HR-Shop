@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import com.hr.shop.dao.AccountDao;
 import com.hr.shop.dao.Append_CommentDao;
 import com.hr.shop.dao.BaseDao;
+import com.hr.shop.dao.BusinessDao;
 import com.hr.shop.dao.CartDao;
 import com.hr.shop.dao.CategoryDao;
 import com.hr.shop.dao.CommentDao;
@@ -25,6 +26,12 @@ import com.hr.shop.dao.SorderDao;
 import com.hr.shop.dao.UserDao;
 import com.hr.shop.service.BaseService;
 
+/**
+ * 基础服务接口实现类
+ * @author hjc
+ *
+ * @param <T>
+ */
 @SuppressWarnings("unchecked")
 @Service("baseService")
 @Lazy(true)
@@ -73,6 +80,8 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 	protected CommentDao commentDao;
 	@Resource
 	protected Append_CommentDao append_CommentDao;
+	@Resource
+	protected BusinessDao businessDao;
 	
 	@Override
 	public void save(T t) {

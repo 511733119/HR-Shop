@@ -29,7 +29,6 @@ public class ProductAction extends BaseAction<Product>{
 	@RequestMapping(value = "/flag/{flag}", method = RequestMethod.GET,produces="application/json;charset=UTF-8" )
 	@JsonView(View.son2.class)
 	public Map<String,Object> findNewest_Or_HighestSalesProduct( @PathVariable("flag") int flag , int pageNum){
-		logger.debug("Entering findNewest_Or_HighestSalesProduct() :");
 		if(pageNum <= 0){
 			return productService.errorRespMap(respMap ,Map_Msg.PARAM_IS_INVALID );
 		}
@@ -41,9 +40,6 @@ public class ProductAction extends BaseAction<Product>{
 			//如果flag!=1，则查找销量最高商品
 			jsonList = productService.findNewest_Or_HighestSalesProduct(pageNum, 12, "sales");
 		}
-//		HttpServletRequest req = ServletActionContext.getRequest();
-//		logger.debug("路径:{}",this.getClass().getClassLoader().getResource("").getPath());
-		logger.debug("Ending findNewest_Or_HighestSalesProduct()");
 		return productService.successRespMap(respMap , Map_Msg.SUCCESS , jsonList);
 	}
 
@@ -53,12 +49,10 @@ public class ProductAction extends BaseAction<Product>{
 	@RequestMapping(value = "/category/{cid}", method = RequestMethod.GET,produces="application/json;charset=UTF-8")
 	@JsonView(View.son2.class)
 	public Map<String,Object> listProduct( @PathVariable("cid") int cid , int pageNum){
-		logger.debug("Entering listProduct() :");
 		if(cid <= 0 || pageNum <= 0){
 			return productService.errorRespMap(respMap ,Map_Msg.PARAM_IS_INVALID );
 		}
 		jsonList = productService.findProduct(pageNum, 12, cid);
-		logger.debug("Ending listProduct()");
 		return productService.successRespMap(respMap , Map_Msg.SUCCESS , jsonList);
 	}
 
@@ -68,12 +62,10 @@ public class ProductAction extends BaseAction<Product>{
 	@JsonView(View.son2.class)
 	@RequestMapping(value = "/details/{id}", method = RequestMethod.GET,produces="application/json;charset=UTF-8")
 	public Map<String, Object> getProduct(@PathVariable int id , @Validated({ValidInterface.class}) Product product ,BindingResult errors){
-		logger.debug("Entering getProduct() :");
 		if(errors.hasErrors()){
 			return productService.errorRespMap(respMap ,Map_Msg.PARAM_IS_INVALID );
 		}
 		jsonList = productService.getProduct(id);
-		logger.debug("Ending getProduct()");
 		return productService.successRespMap(respMap , Map_Msg.SUCCESS , jsonList);
 	}
 
@@ -84,9 +76,7 @@ public class ProductAction extends BaseAction<Product>{
 	@JsonView(View.son2.class)
 	@RequestMapping(value = "/searchList/", method = RequestMethod.GET,produces="application/json;charset=UTF-8")
 	public Map<String, Object> getSearchList(){
-		logger.debug("Entering getSearchList() :");
 		jsonList = productService.getSearchList();
-		logger.debug("Ending getSearchList()");
 		return productService.successRespMap(respMap , Map_Msg.SUCCESS , jsonList);
 	}
 
@@ -97,8 +87,6 @@ public class ProductAction extends BaseAction<Product>{
 	@JsonView(View.son2.class)
 	@RequestMapping(value = "/keyword/", method = RequestMethod.GET,produces="application/json;charset=UTF-8")
 	public Map<String,Object> getSimilarProduct( String name, int pageNum , @Validated({ValidInterface.class}) Product product , BindingResult errors){
-
-		logger.debug("Entering getSimilarProduct()");
 
 		try {
 		    name = new String(name.getBytes("iso-8859-1"),"UTF-8");//对中文进行解码，先转为iso-8859-1字节流，再转为utf8字符流
@@ -114,7 +102,6 @@ public class ProductAction extends BaseAction<Product>{
 		}
 		jsonList = productService.getSimilarProduct(name , pageNum , 10);
 
-		logger.debug("Ending getSimilarProduct()");
 		return productService.successRespMap(respMap , Map_Msg.SUCCESS , jsonList);
 	}
 }

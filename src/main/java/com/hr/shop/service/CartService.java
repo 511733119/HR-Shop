@@ -5,7 +5,11 @@ import com.hr.shop.model.Protype;
 import com.hr.shop.model.User;
 
 import java.util.List;
-
+/**
+ * 购物车接口类
+ * @author hjc
+ *
+ */
 public interface CartService extends BaseService<Cart> {
 	/**
 	 * 获得某个用户的购物车
@@ -48,7 +52,7 @@ public interface CartService extends BaseService<Cart> {
 	
 	/**
 	 * 删除购物车中的商品
-	 * @param ids 购物车项的多个id组成的字符串
+	 * @param ids 购物车项的多个id组成的数组
 	 */
-	public void deleteCart(String ids);
+	public void deleteCart(int[] ids);
 }

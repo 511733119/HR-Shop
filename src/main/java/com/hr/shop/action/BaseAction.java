@@ -24,14 +24,12 @@ import java.util.Map;
 public class BaseAction<T>{
 
 	protected Logger logger = LoggerFactory.getLogger(BaseAction.class);
-
+	
 	protected List<T> jsonList;
 
 	protected List<Comment> app_com_jsonList;
 
 	protected String result;
-
-	protected ResponseEntity<?> entity ;
 
 	protected Map<String,Object> respMap;
 
@@ -55,6 +53,8 @@ public class BaseAction<T>{
 	protected CommentService commentService;
 	@Resource
 	protected Append_CommentService append_CommentService;
+	@Resource
+	protected BusinessService businessService;
 	@Resource
 	protected FileUploadUtil fileUploadUtil;
 
@@ -81,14 +81,6 @@ public class BaseAction<T>{
     public void setResult(String result) {
         this.result = result;
     }
-
-	public void setEntity(ResponseEntity<?> entity) {
-		this.entity = entity;
-	}
-
-	public ResponseEntity<?> getEntity() {
-		return entity;
-	}
 
 	public void setRespMap(Map<String, Object> respMap) {
 		this.respMap = respMap;

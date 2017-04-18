@@ -29,7 +29,6 @@ public class ProtypeAction extends BaseAction<Protype> {
 	 */
 	@RequestMapping(value = "/cart/add" , method = RequestMethod.POST ,produces="application/json;charset=UTF-8")
 	public Map<String, Object> addCart(int ptid, int id, int number , @Validated({ValidInterface.class})User u , BindingResult errors){
-		logger.debug("Entering addCart() :");
 
 		if(errors.hasErrors()){
 			return productService.errorRespMap(respMap ,Map_Msg.PARAM_IS_INVALID );
@@ -48,11 +47,7 @@ public class ProtypeAction extends BaseAction<Protype> {
 		if ( number >= inventory){
 			return productService.errorRespMap(respMap ,Map_Msg.UPDATE_NUMBER_ERROR );
 		}
-
-		logger.debug("number:{},userid:{}",number,id);
-
 		User user = new User(id);
-
 		//获得该用户所有购物车id
 		List<Cart> list = cartService.getCartId(user.getId());
 
@@ -61,7 +56,6 @@ public class ProtypeAction extends BaseAction<Protype> {
 		}
 		//保存购物车信息
 		cartService.saveCart(list, number, user, protype);
-		logger.debug("Ending addCart()");
 		return productService.successRespMap(respMap , Map_Msg.ADD_CART_SUCCESS , "");
 	}
 	

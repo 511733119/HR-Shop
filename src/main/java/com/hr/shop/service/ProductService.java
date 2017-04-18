@@ -3,7 +3,11 @@ package com.hr.shop.service;
 import com.hr.shop.model.Product;
 
 import java.util.List;
-
+/**
+ * 商品服务接口类
+ * @author hjc
+ *
+ */
 public interface ProductService extends BaseService<Product> {
 
 	public List<Product> queryJoinCategory(String name, int page, int size);
@@ -59,4 +63,10 @@ public interface ProductService extends BaseService<Product> {
 	 * @return
 	 */
 	public List<Product> getSearchList();
+	/**
+	 * 用户支付成功后，更新商品的销量
+	 * @param pid
+	 * @param buy_number
+	 */
+	public void updateSales(int pid, int buy_number);
 }

@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 import com.hr.shop.model.Category;
 import com.hr.shop.service.CategoryService;
 
-/*
- * 模块自身的业务逻辑
+/**
+ * 商品种类服务接口实现类
+ * @author hjc
+ *
  */
 @Service("categoryService")
 public class CategoryServiceImpl extends BaseServiceImpl<Category> implements CategoryService {

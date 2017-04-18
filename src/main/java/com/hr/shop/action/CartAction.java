@@ -37,19 +37,16 @@ public class CartAction extends BaseAction<Cart> {
 		int inventory = 0;
 
 		Cart cart = cartService.get(id);
-		if(cart != null){
-			inventory = cart.getProtype().getInventory();	//获得该商品库存
+		if (cart == null) {
+			return productService.errorRespMap(respMap, Map_Msg.PARAM_IS_INVALID);
 		}
+		inventory = cart.getProtype().getInventory();	//获得该商品库存
 		//如果数量大于库存,则输出错误
 		if ( number > inventory){
 			return productService.errorRespMap(respMap ,Map_Msg.PARAM_IS_INVALID );
 		}
-//		cart.setNumber(number);
-//
-//		cartService.update(cart);
 		cartService.updateCartNumber(id,number);//执行更新操作
 
-		logger.debug("Ending updateCartNumber()");
 		return productService.successRespMap(respMap , Map_Msg.UPDATE_SUCCESS , "");
 	}
 
@@ -58,12 +55,10 @@ public class CartAction extends BaseAction<Cart> {
 	 */
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE,produces="application/json;charset=UTF-8" )
 	public Map<String,Object> deleteCart(@PathVariable("id") int id , @Validated({ValidInterface.class})Cart cart , BindingResult errors) {
-		logger.debug("Entering deleteCart() : id:{}",id);
 		if(errors.hasErrors()){
 			return productService.errorRespMap(respMap ,Map_Msg.PARAM_IS_INVALID );
 		}
 		cartService.delete(id);//删除该购物车项
-		logger.debug("Ending deleteCart()");
 		return productService.successRespMap(respMap , Map_Msg.DELETE_SUCCESS , "");
 	}
 
@@ -73,13 +68,11 @@ public class CartAction extends BaseAction<Cart> {
 	@RequestMapping(value = "/user", method = RequestMethod.GET,produces="application/json;charset=UTF-8" )
 	@JsonView(View.son.class)
 	public Map<String,Object> getCart(int id , @Validated({ValidInterface.class}) User user , BindingResult errors) {
-		logger.debug("Entering getCart() :");
 		if (errors.hasErrors()){
 			return productService.errorRespMap(respMap ,Map_Msg.PARAM_IS_INVALID );
 		}
 		//获取购物车数据
 		jsonList = cartService.getCart(id);
-		logger.debug("Ending getCart()");
 		return productService.successRespMap(respMap , Map_Msg.SUCCESS , jsonList);
 	}
 

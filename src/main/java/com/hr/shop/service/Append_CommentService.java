@@ -6,6 +6,8 @@ import com.hr.shop.model.Append_Comment_Pic;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.web.multipart.MultipartFile;
+
 /**
  * 追加评论服务接口类
  * HR-Shop
@@ -40,4 +42,15 @@ public interface Append_CommentService extends BaseService<Append_Comment> {
 	 * @return
 	 */
 	public Append_Comment_Pic setAppend_Comment_Pic(Append_Comment_Pic append_Comment_Pic , String file_name , Append_Comment app_com);
+
+	/**
+	 * 保存追评
+	 * @param append_Comment 追评
+	 * @param pid 商品id
+	 * @param uid 用户id
+	 * @param file 
+	 * @param comment_id 评论id
+	 * @param sid 订单项id
+	 */
+	public void saveAppend_Comment(String append_Comment,int pid, int uid,MultipartFile[] file,int comment_id,int sid);
 }

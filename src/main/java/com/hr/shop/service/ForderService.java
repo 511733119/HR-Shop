@@ -11,7 +11,11 @@ import com.hr.shop.model.Status;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
-
+/**
+ * 订单服务接口类
+ * @author hjc
+ *
+ */
 public interface ForderService extends BaseService<Forder> {
 	/**
 	 * 下订单
@@ -105,5 +109,26 @@ public interface ForderService extends BaseService<Forder> {
 	 * @param price
 	 */
 	public void setForderSet(Sorder sorder, Cart cart, Forder forder , BigDecimal price);
+	
+	/**
+	 * 取消订单，修改订单状态及恢复库存
+	 * @param forder
+	 * @param fid 订单id
+	 */
+	public void cancelOrder(Forder forder, String fid);
+	
+	/**
+	 * HttpClient抓取bmob订单状态
+	 * @param id bmob订单id
+	 * @return
+	 */
+	public Pay_Result getPay_Result(String id);
+	
+	/**
+	 * 更新订单支付时间和订单状态修改为已支付，更新商品销量
+	 * @param pay_Result
+	 * @param fid 订单id
+	 */
+	public void updateAboutForder(Pay_Result pay_Result, String fid);
 	
 }

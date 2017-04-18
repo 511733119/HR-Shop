@@ -5,8 +5,10 @@ import org.springframework.stereotype.Service;
 import com.hr.shop.model.Protype;
 import com.hr.shop.service.ProtypeService;
 
-/*
- * 模块自身的业务逻辑
+/**
+ * 商品细分种类服务接口实现类
+ * @author hjc
+ *
  */
 @Service("protypeService")
 public class ProtypeServiceImpl extends BaseServiceImpl<Protype> implements ProtypeService {
