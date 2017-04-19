@@ -72,7 +72,7 @@ public class MyLog {
          String params = "";  
          if (pjp.getArgs() != null && pjp.getArgs().length > 0) {  
              for (int i = 0; i < pjp.getArgs().length; i++) {  
-                 params += new Gson().toJson(pjp.getArgs()[i]) + ";";  
+                 params += pjp.getArgs()[i] + ";";  
              }  
          }  
          logger.debug("param:{}" , params);
