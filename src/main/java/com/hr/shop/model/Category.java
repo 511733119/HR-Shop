@@ -112,10 +112,5 @@ public class Category implements java.io.Serializable {
 		return create_date;
 	}
 
-	@Override
-	public String toString() {
-		return "Category [id=" + id + ", type=" + type + ", hot=" + hot + ", create_date=" + create_date
-				+ ", update_date=" + update_date + "]";
-	}
-
+	
 }

@@ -109,10 +109,4 @@ public class Append_Comment_Pic implements java.io.Serializable {
 		return update_date;
 	}
 
-	@Override
-	public String toString() {
-		return "Append_Comment_Pic [id=" + id + ", pic=" + pic + ", append_comment=" + append_comment + ", create_date="
-				+ create_date + ", update_date=" + update_date + "]";
-	}
-
 }

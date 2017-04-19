@@ -135,10 +135,4 @@ public class Protype implements java.io.Serializable {
 		return update_date;
 	}
 
-	@Override
-	public String toString() {
-		return "Protype [id=" + id + ", name=" + name + ", pic=" + pic + ", inventory=" + inventory + ", product="
-				+ product + ", create_date=" + create_date + ", update_date=" + update_date + "]";
-	}
-	
 }

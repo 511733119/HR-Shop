@@ -99,10 +99,4 @@ public class Account implements java.io.Serializable {
 		return update_date;
 	}
 
-	@Override
-	public String toString() {
-		return "Account [id=" + id + ", accountname=" + accountname + ", accountpwd=" + accountpwd + ", create_date="
-				+ create_date + ", update_date=" + update_date + "]";
-	}
-
 }

@@ -120,10 +120,4 @@ public class Cart implements java.io.Serializable {
 		return create_date;
 	}
 
-	@Override
-	public String toString() {
-		return "Cart [id=" + id + ", number=" + number + ", protype=" + protype + ", user=" + user + ", create_date="
-				+ create_date + ", update_date=" + update_date + "]";
-	}
-	
 }

@@ -194,11 +194,4 @@ public class Comment implements Serializable{
 		return append_comment;
 	}
 
-	@Override
-	public String toString() {
-		return "Comment [id=" + id + ", star=" + star + ", comment=" + comment + ", create_date=" + create_date
-				+ ", update_date=" + update_date + ", flag=" + flag + ", user=" + user + ", product=" + product
-				+ ", comment_pic_Set=" + comment_pic_Set + ", append_comment=" + append_comment + "]";
-	}
-    
 }

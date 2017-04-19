@@ -224,11 +224,4 @@ public class Forder implements java.io.Serializable {
 		return update_date;
 	}
 
-	@Override
-	public String toString() {
-		return "Forder [id=" + id + ", name=" + name + ", phone=" + phone + ", remark=" + remark + ", total=" + total
-				+ ", address=" + address + ", create_date=" + create_date + ", update_date=" + update_date
-				+ ", pay_date=" + pay_date + ", user=" + user + ", status=" + status + ", sorderSet=" + sorderSet
-				+ ", flag=" + flag + "]";
-	}
 }

@@ -67,8 +67,4 @@ public class Status implements java.io.Serializable {
 		this.status = status;
 	}
 
-	@Override
-	public String toString() {
-		return "Status [id=" + id + ", status=" + status + "]";
-	}
 }

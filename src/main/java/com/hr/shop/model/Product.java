@@ -224,11 +224,4 @@ public class Product implements java.io.Serializable {
 		return business;
 	}
 
-	@Override
-	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", price=" + price + ", remark=" + remark + ", create_date="
-				+ create_date + ", update_date=" + update_date + ", commend=" + commend + ", open=" + open + ", sales="
-				+ sales + ", category=" + category + ", business=" + business + ", protypeSet=" + protypeSet + "]";
-	}
-	
 }

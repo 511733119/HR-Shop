@@ -173,12 +173,4 @@ public class Business implements Serializable{
 	public Timestamp getUpdate_date() {
 		return update_date;
 	}
-
-	@Override
-	public String toString() {
-		return "Business [id=" + id + ", name=" + name + ", followers=" + followers + ", collectors=" + collectors
-				+ ", pic=" + pic + ", productSet=" + productSet + ", create_date=" + create_date + ", update_date="
-				+ update_date + "]";
-	}
-	
 }

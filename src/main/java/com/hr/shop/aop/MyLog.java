@@ -16,7 +16,6 @@ import com.google.gson.Gson;
 public class MyLog {  
 	
     final Logger logger = LoggerFactory.getLogger(MyLog.class);  
-//    String logStr = null ;  
     /**  
      * 必须为final String类型的,注解里要使用的变量只能是静态常量类型的  
      */
