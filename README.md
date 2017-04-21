@@ -7,7 +7,7 @@ HR-Shop是一个基于自营模式的商城app，专注于在校内售卖零食�
 
 项目管理：Maven  
 开发框架：Spring,SpringMVC,Hibernate  
-缓存：ehcache，redis   
+缓存：ehcache   
 数据验证:Hibernate Validator  
 日志工具：Slf4j + Log4j  
 数据库：MySQL  

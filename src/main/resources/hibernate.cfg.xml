@@ -35,6 +35,8 @@
 		<mapping class="com.hr.shop.model.Status" />
 		<mapping class="com.hr.shop.model.Forder" />
 		<mapping class="com.hr.shop.model.Sorder" />
+		<mapping class="com.hr.shop.model.User_follow_Business" />
+		<mapping class="com.hr.shop.model.User_follow_Product" />
 		<mapping class="com.hr.shop.model.Cart" />
 		<mapping class="com.hr.shop.model.User" />
 		<mapping class="com.hr.shop.model.Protype" />

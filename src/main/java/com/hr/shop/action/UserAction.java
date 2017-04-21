@@ -3,7 +3,11 @@ package com.hr.shop.action;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.hr.shop.Constant.Map_Msg;
 import com.hr.shop.jsonView.View;
+import com.hr.shop.model.Business;
+import com.hr.shop.model.Product;
 import com.hr.shop.model.User;
+import com.hr.shop.model.User_follow_Business;
+import com.hr.shop.model.User_follow_Product;
 import com.hr.shop.validatorInterface.ValidInterface;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -11,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import redis.clients.jedis.Jedis;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -245,6 +250,88 @@ public class UserAction extends BaseAction<User> {
 		}
 		userService.updatePassword(id,password);//设置新的密码，更新用户
 		return productService.successRespMap(respMap , Map_Msg.UPDATE_SUCCESS , "");
+	}
+	
+	/**
+	 * 用户收藏/取消收藏店铺
+	 * @param bid 店铺id
+	 * @param id 用户id
+	 * @return
+	 */
+	@RequestMapping(value = "/businesses-followers" , method = RequestMethod.POST, produces = "application/json;charset=utf-8")
+	public Map<String, Object> handlerBusinessFolowers( int bid ,  int id){
+		if (bid < 1 || id < 1) {
+			return productService.errorRespMap(respMap, Map_Msg.PARAM_IS_INVALID);
+		}
+		long count = user_BusinessService.checkIfFollow(bid, id);//检查用户是否已收藏该店铺
+		if (count == 0) {
+			//如果未收藏店铺，则插入数据
+			User_follow_Business user_follow_Business = new User_follow_Business();
+			user_follow_Business.setUser(new User(id));
+			user_follow_Business.setBusiness(new Business(bid));
+			user_BusinessService.save(user_follow_Business);
+		}else{
+			//如果已收藏，则删除该数据
+			user_BusinessService.deleteFollow(bid,id);
+		}
+		return productService.successRespMap(respMap, Map_Msg.SUCCESS, "");
+	}
+	
+	/**
+	 * 获取用户收藏的店铺
+	 * @param id 用户id
+	 * @param pageNum 页码
+	 * @return
+	 */
+	@JsonView({View.summary.class})
+	@RequestMapping(value = "/businesses-follows" , method = RequestMethod.GET, produces = "application/json;charset=utf-8")
+	public Map<String, Object> getUserFollowsBusiness(int id , int pageNum){
+		if (pageNum < 1 || id < 1) {
+			return productService.errorRespMap(respMap, Map_Msg.PARAM_IS_INVALID);
+		}
+		List<User_follow_Business> jsonList = userService.getUserFollowsBusiness(id, pageNum, 10);
+		return productService.successRespMap(respMap, Map_Msg.SUCCESS, jsonList);
+	}
+	
+	/**
+	 * 用户收藏/取消收藏商品
+	 * @param pid 商品id
+	 * @param id 用户id
+	 * @return
+	 */
+	@RequestMapping(value = "/products-followers" , method = RequestMethod.POST, produces = "application/json;charset=utf-8")
+	public Map<String, Object> handlerProductFolowers(int pid ,  int id){
+		if (pid < 1 || id < 1) {
+			return productService.errorRespMap(respMap, Map_Msg.PARAM_IS_INVALID);
+		}
+		long count = user_ProductService.checkIfFollow(pid, id);//检查用户是否已收藏该商品
+		if (count == 0) {
+			//如果未收藏店铺，则插入数据
+			User_follow_Product user_follow_Product = new User_follow_Product();
+			user_follow_Product.setUser(new User(id));
+			user_follow_Product.setProduct(new Product(pid));
+			user_ProductService.save(user_follow_Product);
+		}else{
+			//如果已收藏，则删除该数据
+			user_ProductService.deleteFollow(pid,id);
+		}
+		return productService.successRespMap(respMap, Map_Msg.SUCCESS, "");
+	}
+	
+	/**
+	 * 获取用户收藏的商品
+	 * @param id 用户id
+	 * @param pageNum 页码
+	 * @return
+	 */
+	@JsonView({View.son2.class})
+	@RequestMapping(value = "/products-follows" , method = RequestMethod.GET, produces = "application/json;charset=utf-8")
+	public Map<String, Object> getUserFollowsProduct(int id , int pageNum){
+		if (pageNum < 1 || id < 1) {
+			return productService.errorRespMap(respMap, Map_Msg.PARAM_IS_INVALID);
+		}
+		List<User_follow_Product> jsonList = userService.getUserFollowsProduct(id, pageNum, 10);
+		return productService.successRespMap(respMap, Map_Msg.SUCCESS, jsonList);
 	}
 }
 

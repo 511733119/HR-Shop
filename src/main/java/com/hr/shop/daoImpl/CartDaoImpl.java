@@ -29,8 +29,9 @@ public class CartDaoImpl extends BaseDaoImpl<Cart> implements CartDao {
 		String hql = " SELECT DISTINCT c FROM Cart c"
 				+ " JOIN FETCH c.protype pt"
 				+ " JOIN FETCH pt.product p"
-				+ " JOIN FETCH p.protypeSet"
+				+ " JOIN FETCH p.protypeList"
 				+ " JOIN FETCH p.category"
+				+ " JOIN FETCH p.business"
 				+ " WHERE c.user.id=:uid";
 		return getSession().createQuery(hql)
 					.setCacheable(true)

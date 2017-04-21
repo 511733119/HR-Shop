@@ -11,6 +11,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -79,7 +80,7 @@ public class Append_Comment implements Serializable{
     @JoinColumn(name = "append_comment_id")
     @JsonView({View.son.class})
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Append_Comment_Pic> append_comment_pic_Set;
+    private List<Append_Comment_Pic> append_comment_pic_List;
 
     public Append_Comment(){}
 
@@ -140,12 +141,12 @@ public class Append_Comment implements Serializable{
         return update_date;
     }
 
-    public void setAppend_comment_pic_Set(Set<Append_Comment_Pic> append_comment_pic_Set) {
-        this.append_comment_pic_Set = append_comment_pic_Set;
+    public void setAppend_comment_pic_List(List<Append_Comment_Pic> append_comment_pic_List) {
+        this.append_comment_pic_List = append_comment_pic_List;
     }
 
-    public Set<Append_Comment_Pic> getAppend_comment_pic_Set() {
-        return append_comment_pic_Set;
+    public List<Append_Comment_Pic> getAppend_comment_pic_List() {
+        return append_comment_pic_List;
     }
 
 }

@@ -12,6 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
@@ -36,7 +37,7 @@ public class ForderServiceImplTest {
 		Forder forder = new Forder();
 		BigDecimal price ;
 		BigDecimal total = new BigDecimal(0.00);
-		forder.setSorderSet(new HashSet<Sorder>());
+		forder.setSorderList(new ArrayList<Sorder>());
 		forder.setId(String.valueOf(System.currentTimeMillis())); //设置订单号
 		for (int i = 0; i < order.getCart().size(); i++) {
 			price = new BigDecimal(0.00);
@@ -48,7 +49,7 @@ public class ForderServiceImplTest {
 			price = price.add(new BigDecimal(cart.getNumber()).multiply(cart.getProtype().getProduct().getPrice()));
 			sorder.setPrice(price);
 			total = total.add(price);
-			forder.getSorderSet().add(sorder);
+			forder.getSorderList().add(sorder);
 			//减少库存
 			Protype protype = cart.getProtype();
 			protype.setInventory(protype.getInventory() - cart.getNumber());

@@ -23,8 +23,8 @@ public class CommentDaoImpl extends BaseDaoImpl<Comment> implements CommentDao {
         int fromIndex = pageSize * (pageNum-1);
         String hql = "FROM Comment c" +
                 " LEFT JOIN FETCH c.append_comment a" +
-                " LEFT JOIN FETCH c.comment_pic_Set" +
-                " LEFT JOIN FETCH a.append_comment_pic_Set" +
+                " LEFT JOIN FETCH c.comment_pic_List" +
+                " LEFT JOIN FETCH a.append_comment_pic_List" +
                 " JOIN FETCH c.product p" +
                 " JOIN FETCH c.user" +
                 " WHERE p.id=:pid" +
@@ -51,8 +51,13 @@ public class CommentDaoImpl extends BaseDaoImpl<Comment> implements CommentDao {
 	
 	@Override
 	public List<Comment> getComment(int pid, int uid){
-		String hql = "FROM Comment c WHERE c.product.id=:pid AND c.user.id=:uid";
-//		String hql = "SELECT new com.hr.shop.dto.Comment_dto(c.id,c.star,c.comment,c.create_date) FROM Comment c WHERE c.product.id=:pid AND c.user.id=:uid";
+		String hql = "FROM Comment c"
+				+ " JOIN FETCH c.user"
+				+ " JOIN FETCH c.product"
+				+ " JOIN FETCH c.comment_pic_List"
+				+ " JOIN FETCH c.append_comment"
+				+ " WHERE c.product.id=:pid"
+				+ " AND c.user.id=:uid";
 		return  getSession().createQuery(hql)
 				.setInteger("pid", pid)
 				.setInteger("uid", uid)

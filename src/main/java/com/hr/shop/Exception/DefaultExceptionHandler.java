@@ -23,12 +23,12 @@ public class DefaultExceptionHandler implements HandlerExceptionResolver {
     public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler,  Exception ex) {
         ModelAndView mv = new ModelAndView();
             /*  使用response返回    */
-        response.setStatus(HttpStatus.OK.value()); //设置状态码
+        response.setStatus(HttpStatus.BAD_REQUEST.value()); //设置状态码
         response.setContentType(MediaType.APPLICATION_JSON_VALUE); //设置ContentType
         response.setCharacterEncoding("UTF-8"); //避免乱码
         response.setHeader("Cache-Control", "no-cache, must-revalidate");
         try {
-            response.getWriter().write("{\"error_code\":"+ 400 + ",\"message\":\"" + "请输入正确的数据" + "\"}");
+            response.getWriter().write("{\"error_code\":"+ 400 + ",\"message\":\"" + "请求非法" + "\"}");
         } catch (IOException e) {
             log.error("与客户端通讯异常:"+ e.getMessage(), e);
         }

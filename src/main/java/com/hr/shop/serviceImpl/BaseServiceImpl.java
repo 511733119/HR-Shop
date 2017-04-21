@@ -24,6 +24,9 @@ import com.hr.shop.dao.ProductDao;
 import com.hr.shop.dao.ProtypeDao;
 import com.hr.shop.dao.SorderDao;
 import com.hr.shop.dao.UserDao;
+import com.hr.shop.dao.User_follow_BusinessDao;
+import com.hr.shop.dao.User_follow_ProductDao;
+import com.hr.shop.model.User_follow_Product;
 import com.hr.shop.service.BaseService;
 
 /**
@@ -82,6 +85,10 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 	protected Append_CommentDao append_CommentDao;
 	@Resource
 	protected BusinessDao businessDao;
+	@Resource
+	protected User_follow_BusinessDao user_follow_BusinessDao;
+	@Resource
+	protected User_follow_ProductDao user_follow_ProductDao;
 	
 	@Override
 	public void save(T t) {

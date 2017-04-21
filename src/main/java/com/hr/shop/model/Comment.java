@@ -12,6 +12,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -94,7 +95,7 @@ public class Comment implements Serializable{
     @JoinColumn(name = "comment_id")
     @JsonView({View.summary.class})
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Comment_Pic> comment_pic_Set;
+    private List<Comment_Pic> comment_pic_List;
 
     @OneToOne()
     @JoinColumn(name="append_id")
@@ -163,12 +164,12 @@ public class Comment implements Serializable{
         return update_date;
     }
 
-    public void setComment_pic_Set(Set<Comment_Pic> comment_pic_Set) {
-        this.comment_pic_Set = comment_pic_Set;
+    public void setComment_pic_List(List<Comment_Pic> comment_pic_List) {
+        this.comment_pic_List = comment_pic_List;
     }
 
-    public Set<Comment_Pic> getComment_pic_Set() {
-        return comment_pic_Set;
+    public List<Comment_Pic> getComment_pic_List() {
+        return comment_pic_List;
     }
 
     public void setProduct(Product product) {

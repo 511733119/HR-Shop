@@ -39,13 +39,14 @@ public class ForderDaoImpl extends BaseDaoImpl<Forder> implements ForderDao {
 
 		int fromIndex = pageSize * (pageNum-1);
 
-		String hql = "FROM Forder f JOIN FETCH f.sorderSet st"
+		String hql = "FROM Forder f"
+				+ " JOIN FETCH f.sorderList st"
 				+ " JOIN FETCH st.protype pt"
 				+ " JOIN FETCH pt.product p"
 				+ " JOIN FETCH p.category"
-				+ " JOIN FETCH p.protypeSet"
+				+ " JOIN FETCH p.protypeList"
+				+ " JOIN FETCH p.business"
 				+ " JOIN FETCH f.status"
-				+ " JOIN FETCH f.user"
 				+ " WHERE f.user.id=:uid"
 				+ " AND f.flag=0"
 				+ " ORDER BY f.update_date desc";

@@ -50,7 +50,8 @@ public class ProductDaoImpl extends BaseDaoImpl<Product> implements ProductDao {
 		int fromIndex = pageSize * (pageNum-1);
 
 		String hql = "FROM Product p"
-				+ " JOIN FETCH p.protypeSet"
+				+ " JOIN FETCH p.business"
+				+ " JOIN FETCH p.protypeList"
 				+ " JOIN FETCH p.category"
 				+ " WHERE p.commend=true"
 				+ " AND p.open=true"
@@ -69,7 +70,8 @@ public class ProductDaoImpl extends BaseDaoImpl<Product> implements ProductDao {
 		int fromIndex = pageSize * (pageNum-1);
 		
 		String hql ="FROM Product p"
-				+ " JOIN FETCH p.protypeSet"
+				+ " JOIN FETCH p.business"
+				+ " JOIN FETCH p.protypeList"
 				+ " JOIN FETCH p.category"
 				+ " WHERE p.commend=true"
 				+ " AND p.open=true"
@@ -90,8 +92,9 @@ public class ProductDaoImpl extends BaseDaoImpl<Product> implements ProductDao {
 		int fromIndex = pageSize * (pageNum-1);
 
 		String hql ="FROM Product p"
-				+ " JOIN FETCH p.protypeSet"
-				+ " JOIN fetch p.category"
+				+ " JOIN FETCH p.protypeList"
+				+ " JOIN FETCH p.category"
+				+ " JOIN FETCH p.business"
 				+ " WHERE p.commend=true"
 				+ " AND p.open=true"
 				+ " ORDER BY p."+ field +" DESC";
@@ -105,8 +108,8 @@ public class ProductDaoImpl extends BaseDaoImpl<Product> implements ProductDao {
 	@Override
 	public List<Product> getProduct(int pid) {
 		String hql = "FROM Product p"
+				+ " JOIN FETCH p.protypeList"
 				+ " JOIN FETCH p.category"
-				+ " LEFT JOIN FETCH p.protypeSet"
 				+ " JOIN FETCH p.business"
 				+ " WHERE p.id=:pid";
 		return  getSession().createQuery(hql)

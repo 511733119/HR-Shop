@@ -10,5 +10,13 @@ import java.util.List;
  *
  */
 public interface BusinessService extends BaseService<Business> {
-
+	/**
+	 * 店铺首页展示数据
+	 * @param id
+	 * @param pageNum
+	 * @return
+	 */
+	public List<Product> getInto_Business(int id , int pageNum , int pageSize);
+	
+	public List<Product> getNew_Product(int id, int pageNum , int pageSize);
 }

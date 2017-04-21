@@ -10,6 +10,7 @@ import com.hr.shop.util.FileUploadUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -53,8 +54,8 @@ public class CommentServiceImpl extends BaseServiceImpl<Comment> implements Comm
 	}
 	
 	@Override
-	public Comment set_Comment_val(Comment comm , Set<Comment_Pic> cp_Set , int pid , int uid){
-		comm.setComment_pic_Set(cp_Set);//级联评论图片对象
+	public Comment set_Comment_val(Comment comm , List<Comment_Pic> cp_List , int pid , int uid){
+		comm.setComment_pic_List(cp_List);//级联评论图片对象
     	comm.setProduct(new Product(pid));//关联商品对象
     	comm.setUser(new User(uid));//关联用户对象
     	return comm;
@@ -63,7 +64,7 @@ public class CommentServiceImpl extends BaseServiceImpl<Comment> implements Comm
 	@Override
 	public void saveComment(int star, String comment , MultipartFile[] file , int pid, int uid , int sid){
 		Comment comm = new Comment(star, comment);//初始化comment对象
-    	Set<Comment_Pic> cp_Set = new HashSet<Comment_Pic>(); 
+		List<Comment_Pic> cp_List = new ArrayList<Comment_Pic>(); 
     	Comment_Pic comment_Pic = null;
     	//判断file数组不能为空并且长度大于0
 		if(file != null && file.length > 0){
@@ -72,10 +73,10 @@ public class CommentServiceImpl extends BaseServiceImpl<Comment> implements Comm
 				MultipartFile f = file[i];
 				String file_name = fileUploadUtil.saveCommFiles(f);//保存文件
 				comment_Pic = setComment_Pic(comment_Pic, file_name, comm);
-				cp_Set.add(comment_Pic);
+				cp_List.add(comment_Pic);
 			}
 		}
-		comm = set_Comment_val(comm, cp_Set, pid, uid);//给Comment对象赋值
+		comm = set_Comment_val(comm, cp_List, pid, uid);//给Comment对象赋值
 		save(comm);//保存评论
 		sorderDao.updateComm_flag(sid, 1);//标记已评论
 	}

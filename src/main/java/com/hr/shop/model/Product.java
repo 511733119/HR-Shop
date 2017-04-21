@@ -13,6 +13,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Min;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -65,6 +66,7 @@ public class Product implements java.io.Serializable {
 	 * 更新日期
 	 */
 	@Column(name = "update_date", length =19 )
+	@JsonView({View.summary.class})
 	private Timestamp update_date;
 
 	/**
@@ -99,7 +101,7 @@ public class Product implements java.io.Serializable {
 	 */
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="bid")
-	@JsonView({View.summary.class })
+	@JsonView({View.son2.class })
 	private Business business;
 	
 	/**
@@ -109,7 +111,7 @@ public class Product implements java.io.Serializable {
 	@JoinColumn(name = "pid")
 	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 	@JsonView({View.son2.class})
-	private Set<Protype> protypeSet;
+	private List<Protype> protypeList;
 
 	// Constructors
 
@@ -122,18 +124,18 @@ public class Product implements java.io.Serializable {
 	}
 	
 	/** minimal constructor */
-	public Product(Set<Protype> protypeSet) {
-		this.protypeSet = protypeSet;
+	public Product(List<Protype> protypeList) {
+		this.protypeList = protypeList;
 	}
 
 	// Property accessors
 
-	public Set<Protype> getProtypeSet() {
-		return protypeSet;
+	public List<Protype> getProtypeList() {
+		return protypeList;
 	}
 
-	public void setProtypeSet(Set<Protype> protypeSet) {
-		this.protypeSet = protypeSet;
+	public void setProtypeList(List<Protype> protypeList) {
+		this.protypeList = protypeList;
 	}
 
 	public Category getCategory() {

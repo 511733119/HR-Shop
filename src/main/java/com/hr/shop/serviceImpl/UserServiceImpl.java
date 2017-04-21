@@ -1,6 +1,8 @@
 package com.hr.shop.serviceImpl;
 
 import com.hr.shop.model.User;
+import com.hr.shop.model.User_follow_Business;
+import com.hr.shop.model.User_follow_Product;
 import com.hr.shop.service.UserService;
 import com.hr.shop.util.MD5Util;
 import com.taobao.api.DefaultTaobaoClient;
@@ -10,6 +12,7 @@ import com.taobao.api.response.AlibabaAliqinFcSmsNumSendResponse;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
 
+import java.util.List;
 import java.util.regex.Pattern;
 
 /**
@@ -136,6 +139,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
 		userDao.updatePassword(id , password);
 	}
 
+	@Override
 	public void updatAvatar(int id, String avatar) {
 		userDao.updatAvatar(id,avatar);
 	}
@@ -143,5 +147,15 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
 	@Override
 	public void updateToken(String token, int uid) {
 		userDao.updateToken(token, uid);
+	}
+
+	@Override
+	public List<User_follow_Business> getUserFollowsBusiness(int uid, int pageNum, int pageSize) {
+		return userDao.getUserFollowsBusiness(uid, pageNum, pageSize);
+	}
+
+	@Override
+	public List<User_follow_Product> getUserFollowsProduct(int id, int pageNum, int pageSize) {
+		return userDao.getUserFollowsProduct(id, pageNum, pageSize);
 	}
 }

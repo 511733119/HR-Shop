@@ -56,6 +56,10 @@ public class BaseAction<T>{
 	@Resource
 	protected BusinessService businessService;
 	@Resource
+	protected User_follow_BusinessService user_BusinessService;
+	@Resource
+	protected User_follow_ProductService user_ProductService;
+	@Resource
 	protected FileUploadUtil fileUploadUtil;
 
 	public void setApp_com_jsonList(List<Comment> app_com_jsonList) {

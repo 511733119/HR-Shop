@@ -22,6 +22,7 @@ import javax.annotation.Resource;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -58,7 +59,7 @@ public class ForderServiceImpl extends BaseServiceImpl<Forder> implements Forder
 		BigDecimal price ;
 		BigDecimal total = new BigDecimal(0.00);
 		//初始化Forder中的Sorder集合
-		forder.setSorderSet(new HashSet<Sorder>());
+		forder.setSorderList(new ArrayList<Sorder>());
 		/*
 		 * 遍历Order对象，set Forder中的Sorder集合
 		 */
@@ -111,7 +112,7 @@ public class ForderServiceImpl extends BaseServiceImpl<Forder> implements Forder
 		sorder.setProtype(cart.getProtype());	//设置每个订单项对应的商品细分种类
 		sorder.setForder(forder);	//设置每个订单项对应的订单
 		sorder.setPrice(price);	//设置每个订单项的总金额
-		forder.getSorderSet().add(sorder);	//将订单与订单项关联起来
+		forder.getSorderList().add(sorder);	//将订单与订单项关联起来
 	}
 	
 	@Override
@@ -188,7 +189,7 @@ public class ForderServiceImpl extends BaseServiceImpl<Forder> implements Forder
 		int number = 0;//订单中单件商品数量
 		int protype_id = 0 ;
 		//遍历订单中的订单项,并恢复对应商品的库存，设置订单状态为交易关闭
-		for (Sorder sorder : forder.getSorderSet()){
+		for (Sorder sorder : forder.getSorderList()){
 			inventory = sorder.getProtype().getInventory();//获得现在的库存
 			number = sorder.getNumber();//订单项中的下单数量
 			protype_id = sorder.getProtype().getId();//获得该商品id

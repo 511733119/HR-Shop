@@ -34,6 +34,8 @@
 			<mvc:mapping path="/api/carts/user"/>
 			<mvc:mapping path="/api/carts/buy"/>
 			<mvc:mapping path="/api/protypes/cart/add"/>
+			<mvc:mapping path="/api/users/follows"/>
+			<mvc:mapping path="/api/businesses/*/followers"/>
 			<bean class="com.hr.shop.Interceptor.TokenInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>

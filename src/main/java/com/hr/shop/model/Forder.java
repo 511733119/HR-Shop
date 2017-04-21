@@ -15,6 +15,7 @@ import javax.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -120,7 +121,7 @@ public class Forder implements java.io.Serializable {
 	@JoinColumn(name = "fid")
 	@JsonView(View.summary.class)
 	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-	private Set<Sorder> sorderSet;
+	private List<Sorder> sorderList;
 
 	/**
 	 * 订单是否已删除标志
@@ -132,8 +133,8 @@ public class Forder implements java.io.Serializable {
 	public Forder() {
 	}
 
-	public Forder(Set<Sorder> sorderSet) {
-		this.sorderSet = sorderSet;
+	public Forder(List<Sorder> sorderList) {
+		this.sorderList = sorderList;
 	}
 
 	public String getId() {
@@ -200,12 +201,12 @@ public class Forder implements java.io.Serializable {
 		this.status = status;
 	}
 
-	public Set<Sorder> getSorderSet() {
-		return sorderSet;
+	public List<Sorder> getSorderList() {
+		return sorderList;
 	}
 
-	public void setSorderSet(Set<Sorder> sorderSet) {
-		this.sorderSet = sorderSet;
+	public void setSorderList(List<Sorder> sorderList) {
+		this.sorderList = sorderList;
 	}
 
 	public void setCreate_date(Timestamp create_date) {

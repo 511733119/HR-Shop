@@ -32,7 +32,7 @@ public interface Append_CommentService extends BaseService<Append_Comment> {
 	  * @param uid
 	  * @return
 	  */
-	 public Append_Comment setAppend_Comment(String append_Comment,Set<Append_Comment_Pic> acp_Set , int pid, int uid);
+	 public Append_Comment setAppend_Comment(String append_Comment,List<Append_Comment_Pic> acp_List , int pid, int uid);
 	 
 	/**
 	 * 给Append_Comment_Pic对象赋值

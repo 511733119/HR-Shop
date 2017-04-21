@@ -1,6 +1,10 @@
 package com.hr.shop.service;
 
+import java.util.List;
+
 import com.hr.shop.model.User;
+import com.hr.shop.model.User_follow_Business;
+import com.hr.shop.model.User_follow_Product;
 /**
  * 用户类服务接口类
  * @author hjc
@@ -83,4 +87,22 @@ public interface UserService extends BaseService<User> {
 	 * @param uid
 	 */
 	public void updateToken(String token , int uid);
+	
+	/**
+	 * 获取用户收藏的店铺
+	 * @param uid
+	 * @param pageNum
+	 * @param pageSize
+	 * @return
+	 */
+	public List<User_follow_Business> getUserFollowsBusiness(int uid , int pageNum , int pageSize);
+	
+	/**
+	 * 获取用户收藏的商品
+	 * @param id
+	 * @param pageNum
+	 * @param pageSize
+	 * @return
+	 */
+	public List<User_follow_Product> getUserFollowsProduct(int id, int pageNum, int pageSize);
 }

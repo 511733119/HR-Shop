@@ -1,6 +1,11 @@
 package com.hr.shop.daoImpl;
 import com.hr.shop.dao.UserDao;
 import com.hr.shop.model.User;
+import com.hr.shop.model.User_follow_Business;
+import com.hr.shop.model.User_follow_Product;
+
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 /**
  * @author hjc
@@ -80,5 +85,38 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 				.setInteger("uid", uid)
 				.executeUpdate();
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<User_follow_Business> getUserFollowsBusiness(int uid , int pageNum , int pageSize){
 
+		int fromIndex = pageSize * (pageNum-1);
+		String hql = "FROM User_follow_Business ufb"
+				+ " JOIN FETCH ufb.business"
+				+ " WHERE ufb.user.id=:uid";
+		return getSession().createQuery(hql)
+				.setInteger("uid", uid)
+				.setFirstResult(fromIndex)
+				.setMaxResults(pageSize)
+				.list();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<User_follow_Product> getUserFollowsProduct(int id, int pageNum, int pageSize) {
+		
+		int fromIndex = pageSize * (pageNum - 1);
+		String hql = "FROM User_follow_Product ufp"
+				+ " JOIN FETCH ufp.product p"
+				+ " JOIN FETCH ufp.user u"
+				+ " JOIN FETCH p.category"
+				+ " JOIN FETCH p.protypeList"
+				+ " JOIN FETCH p.business"
+				+ " WHERE u.id=:id";
+		return getSession().createQuery(hql)
+						.setInteger("id", id)
+						.list();
+		
+	}
+	
 }

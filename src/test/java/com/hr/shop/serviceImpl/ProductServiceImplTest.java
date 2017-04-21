@@ -41,7 +41,7 @@ public class ProductServiceImplTest {
 	public void testFindNewestProduct(){
 		List<Product> jList = productService.findNewest_Or_HighestSalesProduct(1, 12,"sales");
 		for (Product product : jList){
-			System.out.println(product.getProtypeSet()+","+product.getId()+","+product.getName()+","+product.getPrice());
+			System.out.println(product.getProtypeList()+","+product.getId()+","+product.getName()+","+product.getPrice());
 		}
 		System.out.println(jList);
 	}

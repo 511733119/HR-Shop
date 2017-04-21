@@ -83,9 +83,10 @@ public class Business implements Serializable{
 	/**
      * 追加评论中的图片集合
      */
-    @OneToMany(targetEntity=Product.class, cascade=CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "bid")
-	private Set<Product> productSet; //商家所售商品
+//    @OneToMany(targetEntity=Product.class, cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+//    @JoinColumn(name = "bid")
+//	@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+//	private Set<Product> productSet; //商家所售商品
     
     /**
 	 * 创建日期
@@ -100,6 +101,10 @@ public class Business implements Serializable{
 	private Timestamp update_date;
 	
 	public Business(){}
+	
+	public Business(int id){
+		this.id = id;
+	}
 
 	public Business(int id, String name, int followers, int collectors, String pic) {
 		super();
@@ -149,14 +154,14 @@ public class Business implements Serializable{
 	public void setPic(String pic) {
 		this.pic = pic;
 	}
-
-	public void setProductSet(Set<Product> productSet) {
-		this.productSet = productSet;
-	}
-	
-	public Set<Product> getProductSet() {
-		return productSet;
-	}
+//
+//	public void setProductSet(Set<Product> productSet) {
+//		this.productSet = productSet;
+//	}
+//	
+//	public Set<Product> getProductSet() {
+//		return productSet;
+//	}
 
 	public void setCreate_date(Timestamp create_date) {
 		this.create_date = create_date;

@@ -60,7 +60,7 @@ public interface CommentService extends BaseService<Comment> {
 	  * @param uid
 	  * @return
 	  */
-	 public Comment set_Comment_val(Comment comm , Set<Comment_Pic> cp_Set , int pid , int uid);
+	 public Comment set_Comment_val(Comment comm , List<Comment_Pic> cp_List , int pid , int uid);
 	 
 	 /**
 	  * 保存评论
